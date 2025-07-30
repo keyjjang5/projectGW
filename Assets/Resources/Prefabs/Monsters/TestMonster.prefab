@@ -400,6 +400,7 @@ MonoBehaviour:
         m_Calls: []
     attackValue: 0
     defenseValue: 0
+    scale: {x: 0, y: 0, z: 0}
     BattleEffects:
     - BattleEffectName: monsterAttack1
       Hitbox: {fileID: 0}
@@ -417,6 +418,7 @@ MonoBehaviour:
             m_Calls: []
         attackValue: 0
         defenseValue: 0
+        scale: {x: 0, y: 0, z: 0}
       MaxCooltime: 0
       NowCooltime: 0
       BasePower: 0
@@ -444,6 +446,8 @@ MonoBehaviour:
           m_Calls: []
       attackValue: 0
       defenseValue: 0
+      scale: {x: 0, y: 0, z: 0}
+    image: {fileID: 0}
   baseScale: {x: 0, y: 0, z: 0}
   height: 0.6
 --- !u!1 &6499546388594974731

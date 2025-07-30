@@ -20,6 +20,12 @@ namespace GWMapVer_0_1
                     new MonsterA("MonsterA", 20, 4),
                     new MonsterB("MonsterB", 17, 3),
                     new MonsterB("MonsterB", 17, 7)
+                    ,
+                    new MonsterB("MonsterB", 17, 0),
+                    new MonsterB("MonsterB", 17, 1),
+                    new MonsterB("MonsterB", 17, 5),
+                    new MonsterB("MonsterB", 17, 6),
+                    new MonsterB("MonsterB", 17, 8)
                 };
         }
 

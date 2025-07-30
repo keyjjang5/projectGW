@@ -43,7 +43,8 @@ public class BattleField : MonoBehaviour, ITurn
         for (int i = 0; i < tempField.childCount; i++)
             vertexs.Add(tempField.GetChild(i));
 
-        SetSpawnPoints();
+        //SetSpawnPoints();
+        ssetSpawnPoints();
 
         //List<int> sp = new List<int>
         //{
@@ -96,6 +97,46 @@ public class BattleField : MonoBehaviour, ITurn
         {
             spawns[i] = spawns[i] + pivot.x * hInterval + pivot.y * vInterval;
         }
+    }
+    // 250730 새로만드는 포인트 생성함수 미완성
+    void ssetSpawnPoints()
+    {
+        List<Vector3> verticalPointsLeft = new List<Vector3>();
+        List<Vector3> verticalPointsRight = new List<Vector3>();
+
+        for (int i = 0; i < divisionNum; i++)
+        {
+            float weight = (float)i / divisionNum;
+
+            verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, weight));
+            verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, weight));
+        }
+
+        List<Vector3> horizonTemp = new List<Vector3>();
+        List<Vector3> verticalTemp = new List<Vector3>();
+        for (int i = 0; i < divisionNum; i++)
+        {
+            for (int j = 0; j < divisionNum; j++)
+            {
+                //float weight = (float)j / divisionNum;
+                float weight = (float)1 / (divisionNum * 2) + (float)j / divisionNum;
+                verticalTemp.Add(Vector3.Lerp(verticalPointsLeft[i], verticalPointsRight[i], weight));
+            }
+            
+        }
+
+        for (int i = 0; i < verticalTemp.Count; i++)
+        {
+            spawns.Add(new Vector3(verticalTemp[i].x, verticalTemp[i].y + 1, verticalTemp[i].z));
+            isSpawn.Add(false);
+        }
+
+        //var hInterval = verticalTemp[1] - verticalTemp[0];
+        //var vInterval = verticalTemp[3] - verticalTemp[0];
+        //for (int i = 0; i < spawns.Count; i++)
+        //{
+        //    spawns[i] = spawns[i] + pivot.x * hInterval + pivot.y * vInterval;
+        //}
     }
 
     //몬스터 스폰 함수
