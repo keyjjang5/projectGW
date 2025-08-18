@@ -22,7 +22,6 @@ namespace GWEffectVer_0_2
             int pos = -1;
             if (Target != null)
                 pos = Target.Pos;
-
             user.GetCharacter().Heal(NowPower);
         }
 

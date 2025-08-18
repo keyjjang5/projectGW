@@ -38,4 +38,11 @@ public class CostSystem : MonoBehaviour
     {
         nowAp = maxAp;
     }
+
+    public void RecoveryCost(int value)
+    {
+        nowAp += value;
+        if (nowAp > maxAp)
+            nowAp = maxAp;
+    }
 }

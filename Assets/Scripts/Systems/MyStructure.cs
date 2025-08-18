@@ -56,11 +56,13 @@ public struct KnockbackStruct
 {
     public int TargetPos;
     public int Power;
+    public KnockbackType KnockbackType;
 
-    public KnockbackStruct(int targetPos = -1, int power = 1)
+    public KnockbackStruct(KnockbackType knockbackType, int targetPos = -1, int power = 1)
     {
         TargetPos = targetPos;
         Power = power;
+        KnockbackType = knockbackType;
     }
 }
 

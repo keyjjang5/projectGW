@@ -40,21 +40,42 @@ public class GachaSystem : MonoBehaviour
         rare4Pool = new Dictionary<string, PartyMember>();
 
         gradeWeights = new List<float>();
-        gradeWeights.Add(50.0f);
-        gradeWeights.Add(35.0f);
-        gradeWeights.Add(15.0f);
-        gradeWeights.Add(5.0f);
+        gradeWeights.Add(100.0f);
+        // 가중치를 넣는 곳이지만 IPC로 인해서 레어도 1에 몰빵 해놨음
+        gradeWeights.Add(0.0f);
+        gradeWeights.Add(0.0f);
+        gradeWeights.Add(0.0f);
 
         membersWeight = new Dictionary<string, float>();
 
-        PartyMember temp = new CharacterA("GachaA", 42);
+        //PartyMember temp = new CharacterA("GachaA", 42);
+        //rare1Pool.Add(temp.id, temp);
+        //temp = new CharacterB("GachaB", 45);
+        //rare2Pool.Add(temp.id, temp);
+        //temp = new CharacterC("GachaC", 37);
+        //rare3Pool.Add(temp.id, temp);
+        //temp = new CharacterD("GachaD", 32);
+        //rare4Pool.Add(temp.id, temp);
+
+        PartyMember temp = new CharacterIPC_A("Fire_Exorcist", 30);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterB("GachaB", 45);
-        rare2Pool.Add(temp.id, temp);
-        temp = new CharacterC("GachaC", 37);
-        rare3Pool.Add(temp.id, temp);
-        temp = new CharacterD("GachaD", 32);
-        rare4Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_B("Standard_Warrior", 40);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_C("Archer", 37);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_D("Wizard", 35);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_E("Paladin", 45);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_F("CrossbowMan", 35);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_G("SpearMan", 40);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_H("Healer", 33);
+        rare1Pool.Add(temp.id, temp);
+
+
+
 
         // 이전에 캐릭터 풀 생성 필요
         foreach (var member in rare1Pool)

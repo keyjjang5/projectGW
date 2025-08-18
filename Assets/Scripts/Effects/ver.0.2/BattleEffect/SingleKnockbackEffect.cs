@@ -24,7 +24,7 @@ namespace GWEffectVer_0_2
                 pos = Target.Pos;
 
             Hitbox.BroadcastMessage("Knockback",
-            new KnockbackStruct(pos, NowPower));
+            new KnockbackStruct(KnockbackType.MoveBackward, pos, NowPower));
         }
 
         public override BattleEffect DeepCopy()

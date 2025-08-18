@@ -37,7 +37,7 @@ public class BattleEffectSystem : MonoBehaviour
         //Debug.Log(Time.time);
     }
     
-    void dealBattleEffect()
+    public void dealBattleEffect()
     {
         if (battleEffects.Count <= 0)
             return;

@@ -91,6 +91,13 @@ public class HitBox : MonoBehaviour
                 if (!(pos / 6 >= 1))
                     BattleField.Instance.Hited(pos + 3, attack.Power);
                 break;
+            case (AttackType.ColLine):
+                BattleField.Instance.Hited(pos, attack.Power);
+                if (!(pos / 6 >= 1))
+                    BattleField.Instance.Hited(pos + 3, attack.Power);
+                if (!(pos / 3 < 1))
+                    BattleField.Instance.Hited(pos - 3, attack.Power);
+                break;
             case (AttackType.FullCross):
                 BattleField.Instance.Hited(pos, attack.Power);
                 if (!(pos / 6 >= 1))
@@ -101,6 +108,11 @@ public class HitBox : MonoBehaviour
                     BattleField.Instance.Hited(pos - 1, attack.Power);
                 if (!(pos / 3 < 1))
                     BattleField.Instance.Hited(pos - 3, attack.Power);
+                break;
+            case (AttackType.All):
+                for (int i = 0; i < 9; i++)
+                    BattleField.Instance.Hited(i, attack.Power);
+
                 break;
             case (AttackType.Random):
                 int randomPos = Random.Range(0, 9);
@@ -346,7 +358,15 @@ public class HitBox : MonoBehaviour
         else
             pos = kbStruct.TargetPos;
 
-        BattleField.Instance.Knockback(pos, kbStruct.Power);
+        if(kbStruct.KnockbackType == KnockbackType.MoveBackward)
+            BattleField.Instance.Knockback(pos, kbStruct.Power);
+        else if (kbStruct.KnockbackType == KnockbackType.MoveForward)
+            BattleField.Instance.MoveForward(pos, kbStruct.Power);
+        else if (kbStruct.KnockbackType == KnockbackType.MoveLeft)
+            BattleField.Instance.MoveLeft(pos, kbStruct.Power);
+        else if (kbStruct.KnockbackType == KnockbackType.MoveRight)
+            BattleField.Instance.MoveRight(pos, kbStruct.Power);
+
     }
 
     // 마우스가 어느 공간에 있는지를 찾는다

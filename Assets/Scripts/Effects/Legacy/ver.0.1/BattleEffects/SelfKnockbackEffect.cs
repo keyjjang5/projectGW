@@ -25,7 +25,7 @@ namespace GWEffectVer_0_1
 
         override public void Active()
         {
-            Hitbox.BroadcastMessage("Knockback", new KnockbackStruct(user.GetCharacter().Pos, BasePower));
+            //Hitbox.BroadcastMessage("Knockback", new KnockbackStruct(user.GetCharacter().Pos, BasePower));
         }
     }
 }

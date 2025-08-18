@@ -25,7 +25,7 @@ namespace GWMapVer_0_1
 
         override public Map Deepcopy()
         {
-            Map copiedMap = new BattleMap003();
+            Map copiedMap = new BattleMap004();
 
             return copiedMap;
         }

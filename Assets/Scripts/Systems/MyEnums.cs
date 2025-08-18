@@ -55,6 +55,14 @@ public enum ShieldType
     Mass
 }
 
+public enum KnockbackType
+{
+    MoveBackward,
+    MoveLeft,
+    MoveRight,
+    MoveForward
+}
+
 public enum StatusEffectType
 {
     Power,
@@ -67,7 +75,9 @@ public enum IconType
     NormalAttack,
     UnknownAttack,
     Buff,
-    Debuff
+    Debuff,
+    Shield,
+    Recovery
 }
 
 public enum MapType

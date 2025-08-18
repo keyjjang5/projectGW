@@ -44,6 +44,8 @@ public class AttackUI : MonoBehaviour
 
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/level-up"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/sword"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/shield"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/health-bar"));
     }
 
     public void ShowUI()
@@ -115,11 +117,17 @@ public class AttackUI : MonoBehaviour
                 Debug.Log("sprites error? : " + Sprites[1]);
                 Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[1];
                 break;
+            case (IconType.Shield):
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[2];
+                break;
+            case (IconType.Recovery):
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[3];
+                break;
         }
         //  nowpower 업데이트
         Attacks[monster.Pos].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = monster.NowAttack.NowPower.ToString();
         //  대상을 업데이트 한다.
-        Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + monster.target.Pos;
+        Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + (monster.target.Pos + 1);
         
     }
 }

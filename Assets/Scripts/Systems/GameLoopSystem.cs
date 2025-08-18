@@ -88,6 +88,8 @@ public class GameLoopSystem : MonoBehaviour
     {
         BattleField.Instance.ActivateMonster();
 
+        BattleEffectSystem.Instance.dealBattleEffect();
+
         Debug.Log("MainEnemyTurn End");
     }
 

@@ -104,13 +104,21 @@ public class BattleField : MonoBehaviour, ITurn
         List<Vector3> verticalPointsLeft = new List<Vector3>();
         List<Vector3> verticalPointsRight = new List<Vector3>();
 
-        for (int i = 0; i < divisionNum; i++)
-        {
-            float weight = (float)i / divisionNum;
+        //for (int i = 0; i < divisionNum; i++)
+        //{
+        //    float weight = (float)i / divisionNum;
 
-            verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, weight));
-            verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, weight));
-        }
+        //    verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, weight));
+        //    verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, weight));
+        //}
+
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50/100));
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75/100));
+
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, 0));
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)50 / 100));
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)75 / 100));
 
         List<Vector3> horizonTemp = new List<Vector3>();
         List<Vector3> verticalTemp = new List<Vector3>();
@@ -348,6 +356,34 @@ public class BattleField : MonoBehaviour, ITurn
                 return;
             }
             SearchMonster(pos - 3 * i).Pos = pos - 3 * (i + 1);
+        }
+        UpdateUI();
+    }
+
+    public void MoveLeft(int pos, int length)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            if (SearchMonster((pos - 1 - i)%3 < 2 ? pos - i - 1 : pos - i) != null)
+            {
+                Debug.Log("MoveLeft fail");
+                break;
+            }
+            SearchMonster(pos - 1 * i).Pos = pos - 1 * (i + 1);
+        }
+        UpdateUI();
+    }
+
+    public void MoveRight(int pos, int length)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            if (SearchMonster((pos + 1 + i) % 3 > 0 ? pos + i + 1 : pos + i) != null)
+            {
+                Debug.Log("MoveRight fail");
+                break;
+            }
+            SearchMonster(pos + 1 * i).Pos = pos + 1 * (i + 1);
         }
         UpdateUI();
     }

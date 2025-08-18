@@ -36,10 +36,14 @@ public class MapSystem : MonoBehaviour
         nextMap = null;
 
         battleMaps = new List<Map>();
-        battleMaps.Add(new BattleMap001());
-        battleMaps.Add(new BattleMap002());
-        battleMaps.Add(new BattleMap003());
-        battleMaps.Add(new BattleMap004());
+        //battleMaps.Add(new BattleMap001());
+        //battleMaps.Add(new BattleMap002());
+        //battleMaps.Add(new BattleMap003());
+        //battleMaps.Add(new BattleMap004());
+        battleMaps.Add(new BattleMapIPC_001());
+        battleMaps.Add(new BattleMapIPC_002());
+        battleMaps.Add(new BattleMapIPC_003());
+        battleMaps.Add(new BattleMapIPC_004());
 
         campMaps = new List<Map>();
         campMaps.Add(new CampMap());
@@ -125,7 +129,8 @@ public class MapSystem : MonoBehaviour
         //if (mapProgress % 3 == 0 && mapProgress != 0)
         //    return CampMap().Deepcopy();
 
-        switch (mapProgress % 3)
+        // 임시로 3 > 2로 바꿔놓음 전투와 캠프만 있다.
+        switch (mapProgress % 2)
         {
             //  캠프
             case (0):

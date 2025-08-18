@@ -91,7 +91,7 @@ public class Character : ILife, IStatusEffect, IUser, ITurn
         if (NowHp <= 0)
             Died();
 
-        Debug.Log("hp : " + NowHp);
+        Debug.Log("hp : " + NowHp + "shiled : " + Shield);
             //Shield -= value;
             //if (Shield > 0)
             //    return;

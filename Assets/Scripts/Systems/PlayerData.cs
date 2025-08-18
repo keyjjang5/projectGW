@@ -26,11 +26,23 @@ public class PlayerData : MonoBehaviour
         // 임시로 캐릭터 추가부분
         //AddCharacter(new Character("test1"));
         //AddCharacter(new Character("test2"));
-        AddCharacter(new CharacterA("AttackAndDefense1", 42));
-        AddCharacter(new CharacterB("AttackAndDefense2", 45));
-        AddCharacter(new CharacterC("Healer", 37));
-        AddCharacter(new CharacterD("Mage", 32));
+        //AddCharacter(new CharacterA("AttackAndDefense1", 42));
+        //AddCharacter(new CharacterB("AttackAndDefense2", 45));
+        //AddCharacter(new CharacterC("Healer", 37));
+        //AddCharacter(new CharacterD("Mage", 32));
         //AddCharacter(new CharacterTest("atkcardTest", 30));
+
+        //AddCharacter(new CharacterIPC_A("Fire_Exorcist", 30));
+        AddCharacter(new CharacterIPC_B("Standard_Warrior", 40));
+        //AddCharacter(new CharacterIPC_C("Archer", 37));
+        //AddCharacter(new CharacterIPC_D("Wizard", 35));
+        //AddCharacter(new CharacterIPC_F("CrossbowMan", 35));
+        AddCharacter(new CharacterIPC_G("SpearMan", 40));
+        //AddCharacter(new CharacterIPC_H("Healer", 33));
+
+        // 미완캐
+        //AddCharacter(new CharacterIPC_E("Paladin", 45));
+
     }
 
     // Update is called once per frame
