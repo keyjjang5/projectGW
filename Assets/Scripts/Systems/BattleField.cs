@@ -323,13 +323,15 @@ public class BattleField : MonoBehaviour, ITurn
     // 밀치기, length만큼 뒤로 이동된다.
     public void Knockback(int pos, int length)
     {
-        
+        if (SearchMonster(pos) == null)
+            return;
+
         for (int i = 0; i < length; i++)
         {
             if (SearchMonster(pos + 3 * (i + 1)) != null)
             {
                 Debug.Log("Knockback fail");
-                break;
+                return;
             }
             else if (pos + 3 * (i + 1) > 8)
             {
@@ -343,6 +345,9 @@ public class BattleField : MonoBehaviour, ITurn
 
     public void MoveForward(int pos, int length)
     {
+        if (SearchMonster(pos) == null)
+            return;
+
         for (int i = 0; i < length; i++)
         {
             if (SearchMonster(pos - 3 * (i + 1)) != null)
@@ -362,6 +367,9 @@ public class BattleField : MonoBehaviour, ITurn
 
     public void MoveLeft(int pos, int length)
     {
+        if (SearchMonster(pos) == null)
+            return;
+
         for (int i = 0; i < length; i++)
         {
             if (SearchMonster((pos - 1 - i)%3 < 2 ? pos - i - 1 : pos - i) != null)
@@ -376,6 +384,9 @@ public class BattleField : MonoBehaviour, ITurn
 
     public void MoveRight(int pos, int length)
     {
+        if (SearchMonster(pos) == null)
+            return;
+
         for (int i = 0; i < length; i++)
         {
             if (SearchMonster((pos + 1 + i) % 3 > 0 ? pos + i + 1 : pos + i) != null)

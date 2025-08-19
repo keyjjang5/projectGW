@@ -11,6 +11,9 @@ public class HitBox : MonoBehaviour
 
     public List<Transform> vertexs;
 
+    List<Vector3> horizontalPoints = new List<Vector3>();
+    List<Vector3> verticalPoints = new List<Vector3>();
+    List<Vector3> fieldPoints = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class HitBox : MonoBehaviour
         Transform tempField = transform.GetChild(0);
         for (int i = 0; i < tempField.childCount; i++)
             vertexs.Add(tempField.GetChild(i));
+
+        SetGrid();
     }
 
     // Update is called once per frame
@@ -370,7 +375,8 @@ public class HitBox : MonoBehaviour
     }
 
     // 마우스가 어느 공간에 있는지를 찾는다
-    public int SearchPos()
+    // 아래의 SearchPos()의 전신
+    public int ssSearchPos()
     {
         List<Vector3> horizontalPoints = new List<Vector3>();
         List<Vector3> verticalPoints = new List<Vector3>();
@@ -420,5 +426,103 @@ public class HitBox : MonoBehaviour
         }
 
         return pos;
+    }
+
+    public int sSearchPos()
+    {
+        List<Vector3> verticalPointsLeft = new List<Vector3>();
+        List<Vector3> verticalPointsRight = new List<Vector3>();
+
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50 / 100));
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75 / 100));
+
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, 0));
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)50 / 100));
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)75 / 100));
+
+        List<Vector3> horizonTemp = new List<Vector3>();
+        List<Vector3> verticalTemp = new List<Vector3>();
+        int divisionNum = xDivisionNum;
+        for (int i = 0; i < divisionNum; i++)
+        {
+            for (int j = 0; j < divisionNum; j++)
+            {
+                //float weight = (float)j / divisionNum;
+                float weight = (float)1 / (divisionNum * 2) + (float)j / divisionNum;
+                verticalTemp.Add(Vector3.Lerp(verticalPointsLeft[i], verticalPointsRight[i], weight));
+            }
+
+        }
+
+        int pos = -1;
+
+        for (int i = 0; i < verticalTemp.Count; i++)
+        {
+            Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                        Input.mousePosition.y, -Camera.main.transform.position.z));
+            int num = i / 3;
+
+            Debug.Log("verticalTemp : " + verticalTemp[i]);
+            Debug.Log("SearchPos : " + point);
+
+            if (verticalTemp[i].x - verticalTemp[num].x <= point.x && verticalTemp[i].x + verticalTemp[num].x > point.x
+                && verticalTemp[i].y - verticalTemp[num].y <= point.y && verticalTemp[i].y + verticalTemp[num].y > point.y)
+            {
+                pos = i;
+                break;
+            }
+        }
+
+        return pos;
+    }
+
+    public int SearchPos()
+    {
+        Vector3 hInterval;
+        Vector3 vInterval;
+        if (horizontalPoints.Count > 1)
+            hInterval = horizontalPoints[1] - horizontalPoints[0];
+        else
+            hInterval = vertexs[3].position - vertexs[2].position;
+
+        int pos = -1;
+
+        for (int i = 0; i < fieldPoints.Count; i++)
+        {
+            Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                        Input.mousePosition.y, -Camera.main.transform.position.z));
+
+            int tempNum = i / 3;
+            vInterval = verticalPoints[tempNum + 1] - verticalPoints[tempNum];
+
+            if (fieldPoints[i].x <= point.x && fieldPoints[i].x + hInterval.x > point.x
+                && fieldPoints[i].y <= point.y && fieldPoints[i].y + vInterval.y > point.y)
+            {
+                pos = i;
+                break;
+            }
+        }
+
+        return pos;
+    }
+
+    public void SetGrid()
+    {
+        for (int i = 0; i < xDivisionNum; i++)
+        {
+            float weight = (float)i / xDivisionNum;
+            horizontalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[3].position, weight));
+        }
+        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
+        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50 / 100));
+        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75 / 100));
+        verticalPoints.Add(vertexs[0].position);
+
+        for (int i = 0; i < yDivisionNum; i++)
+            for (int j = 0; j < xDivisionNum; j++)
+            {
+                fieldPoints.Add(new Vector3(horizontalPoints[j].x, verticalPoints[i].y, verticalPoints[i].z));
+            }
     }
 }
