@@ -31,7 +31,7 @@ public class AttackUI : MonoBehaviour
 
         for (int i = 0; i < BattleField.Instance.divisionNum * BattleField.Instance.divisionNum; i++)
         {
-            var icon = Instantiate(Resources.Load("Prefabs/Icons/AttackIcon") as GameObject);
+            var icon = Instantiate(Resources.Load("Prefabs/Icons/AttackLineIcon") as GameObject);
             icon.name = "Icon" + i;
             icon.transform.SetParent(transform);
             Attacks.Add(icon);
@@ -127,7 +127,17 @@ public class AttackUI : MonoBehaviour
         //  nowpower 업데이트
         Attacks[monster.Pos].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = monster.NowAttack.NowPower.ToString();
         //  대상을 업데이트 한다.
-        Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + (monster.target.Pos + 1);
+        //  텍스트 버전용
+        //Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + (monster.target.Pos + 1);
         
+        // line용도 34번 줄의 이름과 같이 변경해줘야함
+        if (monster.target is PartyMember)
+        {
+            var startP = BattleField.Instance.GetMonsterPos(monster.Pos);
+            //var startP = Attacks[monster.Pos].transform.parent.position;
+            var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position;
+
+            Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, endP-startP);
+        } 
     }
 }
