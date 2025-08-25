@@ -16,8 +16,8 @@ public class CharacterIPC_F : PartyMember
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new SingleAtk25Card(GetCharacter()));
-        AddCard(new SingleAtk25Card(GetCharacter()));
+        AddCard(new SingleAtk25Card(GetCharacter(), "조준 사격"));
+        AddCard(new SingleAtk25Card(GetCharacter(), "조준 사격"));
     }
 
     public override Character DeepCopy()

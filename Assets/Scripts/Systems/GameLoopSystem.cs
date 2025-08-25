@@ -128,7 +128,7 @@ public class GameLoopSystem : MonoBehaviour
 
         RewardUI.SetActive(true);
 
-        RewardUI.AddReward(new RewardStruct(RewardType.Money, Random.Range(30, 100), "money"));
+        RewardUI.AddReward(new RewardStruct(RewardType.Money, Random.Range(30, 80), "money"));
         // 임시 보상임
         RewardUI.AddReward(new RewardStruct(RewardType.Item, 0, "T_001"));
 

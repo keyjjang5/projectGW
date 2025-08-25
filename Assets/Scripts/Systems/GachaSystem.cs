@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 나중에 구조 개선하면서 뺄거임
+using UnityEngine.UI;
+using TMPro;
+
 public class GachaSystem : MonoBehaviour
 {
     static public GachaSystem Instance;
@@ -19,6 +23,9 @@ public class GachaSystem : MonoBehaviour
 
     public SelectUI SelectUI;
 
+    // 인프챌 추가
+    public GameObject gachaUi;
+    int nowGachaIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -57,21 +64,21 @@ public class GachaSystem : MonoBehaviour
         //temp = new CharacterD("GachaD", 32);
         //rare4Pool.Add(temp.id, temp);
 
-        PartyMember temp = new CharacterIPC_A("Fire_Exorcist", 30);
+        PartyMember temp = new CharacterIPC_A("하나비", 23);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_B("Standard_Warrior", 40);
+        temp = new CharacterIPC_B("모니카", 33);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_C("Archer", 37);
+        temp = new CharacterIPC_C("사라", 30);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_D("Wizard", 35);
+        temp = new CharacterIPC_D("리나", 28);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_E("Paladin", 45);
+        temp = new CharacterIPC_E("엘리시아", 38);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_F("CrossbowMan", 35);
+        temp = new CharacterIPC_F("셰이드", 28);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_G("SpearMan", 40);
+        temp = new CharacterIPC_G("노아", 33);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_H("Healer", 33);
+        temp = new CharacterIPC_H("소피", 26);
         rare1Pool.Add(temp.id, temp);
 
 
@@ -95,13 +102,131 @@ public class GachaSystem : MonoBehaviour
             membersWeight.Add(member.Value.id, gradeWeights[3] / rare4Pool.Count);
         }
 
+        for (int i = 3; i < 7; i++)
+        {
+            var tempCardGo = Instantiate(Resources.Load("Prefabs/Cards/BaseCardUI") as GameObject);
+
+            tempCardGo.transform.SetParent(gachaUi.transform.GetChild(1).GetChild(i));
+            tempCardGo.transform.localPosition = Vector3.zero;
+        }
+
         CloseSelectUI();
+        CloseGachaUI();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    
+    public void OpenGachaUI()
+    {
+        nowGachaIndex = 0;
+
+        gachaUi.SetActive(true);
+        gachaUi.transform.GetChild(0).gameObject.SetActive(true);
+
+        for (int i = 1; i < gachaUi.transform.childCount; i++)
+            gachaUi.transform.GetChild(i).gameObject.SetActive(false);
+
+    }
+
+    public void CloseGachaUI()
+    {
+        gachaUi.SetActive(false);
+    }
+
+    public void NextGachaUi()
+    {
+        if (nowGachaIndex < gachaUi.transform.childCount)
+        {
+            gachaUi.transform.GetChild(nowGachaIndex).gameObject.SetActive(false);
+            nowGachaIndex++;
+            gachaUi.transform.GetChild(nowGachaIndex).gameObject.SetActive(true);
+        }
+        else
+        {
+            gachaUi.transform.GetChild(nowGachaIndex).gameObject.SetActive(false);
+            nowGachaIndex = 0;
+            gachaUi.transform.GetChild(nowGachaIndex).gameObject.SetActive(true);
+        }
+    }
+
+    public void GachaIPC()
+    {
+        if (PlayerData.Instance.money < 100)
+        {
+            Debug.Log("돈이 부족 합니다");
+            return;
+        }
+
+        NextGachaUi();
+        PlayerData.Instance.RemoveMoney(100);
+
+        var tempId = CharacterIdRandomSelect();
+        tempMember = GetPartyMember(tempId);
+
+        SelectUI.UpdateUI();
+        // 여기에 캐릭터 결과 나오게 해야함
+        gachaUi.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<Image>().sprite = tempMember.ldImage;
+        gachaUi.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = tempMember.Name.Replace("_copy", "");
+        string tempInfo;
+        switch(tempId)
+        {
+            case ("C_005"):
+                tempInfo = "폭발적인 광역 데미지, 코스트 회복.";
+                break;
+            case ("C_006"):
+                tempInfo = "단일 데미지. 강제 이동.";
+                break;
+            case ("C_007"):
+                tempInfo = "단일 데미지,  드로우.";
+                break;
+            case ("C_008"):
+                tempInfo = "범위 데미지, 드로우.";
+                break;
+            case ("C_009"):
+                tempInfo = "단일 타겟, 자기 회복.";
+                break;
+            case ("C_010"):
+                tempInfo = "강력한 단일딜.";
+                break;
+            case ("C_011"):
+                tempInfo = "직선 데미지 + 이동기믹.";
+                break;
+            case ("C_012"):
+                tempInfo = "힐과 드로우.";
+                break;
+            default:
+                tempInfo = "오류입니다.";
+                break;
+        }
+        gachaUi.transform.GetChild(1).GetChild(2).GetComponent<TextMeshProUGUI>().text = tempInfo;
+        for(int i = 3; i < tempMember.cards.Count + 3; i++)
+        {
+            var tempCard = tempMember.cards[i - 3];
+
+            gachaUi.transform.GetChild(1).GetChild(i).gameObject.SetActive(true);
+
+            // 하드코딩으로 이미지 박음
+            gachaUi.transform.GetChild(1).GetChild(i).GetChild(0).GetChild(0).GetComponent<Image>().sprite = tempCard.Sprite;
+
+            gachaUi.transform.GetChild(1).GetChild(i).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = tempCard.CardName;
+            gachaUi.transform.GetChild(1).GetChild(i).GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = tempCard.Description;
+            gachaUi.transform.GetChild(1).GetChild(i).GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = "" + tempCard.cost;
+            gachaUi.transform.GetChild(1).GetChild(i).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = tempCard.parent.Name;
+        }
+        for (int i = 3 + tempMember.cards.Count; i < 7; i++)
+        {
+            gachaUi.transform.GetChild(1).GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    public void RecruitIPC()
+    {
+        CloseGachaUI();
+        OpenSelectUI();
     }
 
     public void Gacha()
@@ -135,6 +260,7 @@ public class GachaSystem : MonoBehaviour
 
     }
 
+    // 확정 가챠
     public void SelectGacha(string id)
     {
         tempMember = GetPartyMember(id);
@@ -186,11 +312,12 @@ public class GachaSystem : MonoBehaviour
 
     public void GetNum(int i)
     {
-        PlayerData.Instance.RemoveCharacter(i);
+        if(PlayerData.Instance.characters.Count > i)
+            PlayerData.Instance.RemoveCharacter(i);
         PlayerData.Instance.AddCharacter(tempMember);
 
         CloseSelectUI();
-        MapSystem.Instance.EscapeMap();
+        //MapSystem.Instance.EscapeMap();
     }
 
     public void OpenSelectUI()

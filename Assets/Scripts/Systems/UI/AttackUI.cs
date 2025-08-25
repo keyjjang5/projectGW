@@ -42,9 +42,9 @@ public class AttackUI : MonoBehaviour
         }
 
 
-        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/level-up"));
-        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/sword"));
-        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/shield"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/etc"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/Attack"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/Defense"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/health-bar"));
     }
 
@@ -121,11 +121,12 @@ public class AttackUI : MonoBehaviour
                 Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[2];
                 break;
             case (IconType.Recovery):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[3];
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
                 break;
         }
         //  nowpower 업데이트
         Attacks[monster.Pos].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = monster.NowAttack.NowPower.ToString();
+
         //  대상을 업데이트 한다.
         //  텍스트 버전용
         //Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + (monster.target.Pos + 1);
@@ -137,7 +138,13 @@ public class AttackUI : MonoBehaviour
             //var startP = Attacks[monster.Pos].transform.parent.position;
             var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position;
 
-            Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, endP-startP);
-        } 
+            
+            if(monster.NowAttack.Type != IconType.NormalAttack)
+                Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, Vector3.zero);
+            else
+                Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, endP - startP);
+            Debug.Log("attacckUI : updateUI(object)");
+
+        }
     }
 }

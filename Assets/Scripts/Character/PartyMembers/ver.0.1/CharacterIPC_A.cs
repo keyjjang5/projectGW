@@ -16,10 +16,10 @@ public class CharacterIPC_A : PartyMember
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new CrossAtk15Card(GetCharacter()));
-        AddCard(new CrossAtk15Card(GetCharacter()));
-        AddCard(new SelfAtk2Cost2Card(GetCharacter()));
-        AddCard(new SelfAtk2Cost2Card(GetCharacter()));
+        AddCard(new CrossAtk15Card(GetCharacter(), "气纺 何利"));
+        AddCard(new CrossAtk15Card(GetCharacter(), "气纺 何利"));
+        AddCard(new SelfAtk2Cost2Card(GetCharacter(), "康去 狼侥"));
+        AddCard(new SelfAtk2Cost2Card(GetCharacter(), "康去 狼侥"));
     }
 
     public override Character DeepCopy()

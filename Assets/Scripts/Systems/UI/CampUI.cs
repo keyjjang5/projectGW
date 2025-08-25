@@ -44,7 +44,7 @@ public class CampUI : MonoBehaviour
      */
     public void SetButtons(List<m_Delegate> button1, List<m_Delegate> button2, List<m_Delegate> button3)
     {
-        var button = transform.GetChild(0).GetComponent<Button>();
+        var button = transform.GetChild(1).GetComponent<Button>();
 
         button.onClick.RemoveAllListeners();
         foreach (var method in button1)
@@ -53,7 +53,7 @@ public class CampUI : MonoBehaviour
         //button.onClick.AddListener(() => MapSystem.Instance.EscapeMap());
 
 
-        button = transform.GetChild(1).GetComponent<Button>();
+        button = transform.GetChild(2).GetComponent<Button>();
         button.onClick.RemoveAllListeners();
         foreach (var method in button2)
             button.onClick.AddListener(delegate { method(); });
@@ -61,7 +61,7 @@ public class CampUI : MonoBehaviour
         button.onClick.AddListener(() => MapSystem.Instance.EscapeMap());
 
         
-        button = transform.GetChild(2).GetComponent<Button>();
+        button = transform.GetChild(3).GetComponent<Button>();
         button.onClick.RemoveAllListeners();
         foreach (var method in button3)
             button.onClick.AddListener(delegate { method(); });

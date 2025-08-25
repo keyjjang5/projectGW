@@ -32,16 +32,14 @@ public class PlayerData : MonoBehaviour
         //AddCharacter(new CharacterD("Mage", 32));
         //AddCharacter(new CharacterTest("atkcardTest", 30));
 
-        //AddCharacter(new CharacterIPC_A("Fire_Exorcist", 30));
-        AddCharacter(new CharacterIPC_B("Standard_Warrior", 40));
-        //AddCharacter(new CharacterIPC_C("Archer", 37));
-        //AddCharacter(new CharacterIPC_D("Wizard", 35));
-        //AddCharacter(new CharacterIPC_F("CrossbowMan", 35));
-        AddCharacter(new CharacterIPC_G("SpearMan", 40));
-        //AddCharacter(new CharacterIPC_H("Healer", 33));
-
-        // 미완캐
-        //AddCharacter(new CharacterIPC_E("Paladin", 45));
+        //AddCharacter(new CharacterIPC_A("하나비", 23));
+        AddCharacter(new CharacterIPC_B("모니카", 33));
+        //AddCharacter(new CharacterIPC_C("사라", 30));
+        //AddCharacter(new CharacterIPC_D("리나", 28));
+        //AddCharacter(new CharacterIPC_E("엘리시아", 38));
+        //AddCharacter(new CharacterIPC_F("셰이드", 28));
+        AddCharacter(new CharacterIPC_G("노아", 33));
+        //AddCharacter(new CharacterIPC_H("소피", 26));
 
     }
 

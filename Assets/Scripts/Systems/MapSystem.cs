@@ -130,7 +130,7 @@ public class MapSystem : MonoBehaviour
         //    return CampMap().Deepcopy();
 
         // 임시로 3 > 2로 바꿔놓음 전투와 캠프만 있다.
-        switch (mapProgress % 2)
+        switch (mapProgress % 3)
         {
             //  캠프
             case (0):
@@ -140,8 +140,12 @@ public class MapSystem : MonoBehaviour
             case (1):
                 returnMap = RandomBattleMap();
                 break;
-            //  랜덤 사건(전투 : 상점 : 이벤트 = 2 : 1 : 1)
             case (2):
+                returnMap = RandomBattleMap();
+                break;
+            //  랜덤 사건(전투 : 상점 : 이벤트 = 2 : 1 : 1)
+            // 임시로 미뤄놓음
+            case (99):
                 returnMap = RandomEventMap();
                 break;
             //  오류

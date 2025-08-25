@@ -42,5 +42,6 @@ public class AttackLineUI : Graphic
     {
         startPoint = start;
         endPoint = end;
+        SetVerticesDirty();
     }
 }

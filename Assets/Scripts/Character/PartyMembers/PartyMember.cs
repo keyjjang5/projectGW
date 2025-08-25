@@ -25,6 +25,7 @@ public class PartyMember : Character
     public int mana;
 
     public Sprite image;
+    public Sprite ldImage;
 
     //public List<StatusEffect> StatusEffects;
 
@@ -83,6 +84,7 @@ public class PartyMember : Character
     public void SetImage()
     {
         image = Resources.Load<Sprite>("Image/Characters/Tears/" + id);
+        ldImage = Resources.Load<Sprite>("Image/Characters/" + id);
     }
 
     public void AddCard(Card card)

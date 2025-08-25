@@ -16,7 +16,7 @@ namespace GWCardVer_0_2
             fileName = "TargetShield10Card";
             AddEffect(new SingleShieldEffect("singleShield10", 10));
             SetImage();
-            Description = "Target Def 10";
+            Description = "대상은 보호막 10을 얻는다.";
             cost = 1;
         }
     }

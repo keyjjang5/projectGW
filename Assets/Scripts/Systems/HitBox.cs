@@ -135,7 +135,7 @@ public class HitBox : MonoBehaviour
     {
         int pos = -1;
         if (attack.TargetPos < 0)
-            pos = SearchPos();
+            pos = ssSearchPos();
         else
             pos = attack.TargetPos;
 
@@ -217,7 +217,7 @@ public class HitBox : MonoBehaviour
     {
         int pos = -1;
         if (healStruct.TargetPos < 0)
-            pos = SearchPos();
+            pos = ssSearchPos();
         else
             pos = healStruct.TargetPos;
 
@@ -288,7 +288,7 @@ public class HitBox : MonoBehaviour
     {
         int pos = -1;
         if (shieldStruct.TargetPos < 0)
-            pos = SearchPos();
+            pos = ssSearchPos();
         else
             pos = shieldStruct.TargetPos;
 
@@ -378,26 +378,26 @@ public class HitBox : MonoBehaviour
     // 아래의 SearchPos()의 전신
     public int ssSearchPos()
     {
-        List<Vector3> horizontalPoints = new List<Vector3>();
-        List<Vector3> verticalPoints = new List<Vector3>();
-        List<Vector3> fieldPoints = new List<Vector3>();
+        //List<Vector3> horizontalPoints = new List<Vector3>();
+        //List<Vector3> verticalPoints = new List<Vector3>();
+        //List<Vector3> fieldPoints = new List<Vector3>();
 
-        for (int i = 0; i < xDivisionNum; i++)
-        {
-            float weight = (float)i / xDivisionNum;
-            horizontalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[3].position, weight));
-        }
-        for (int i = 0; i < yDivisionNum; i++) 
-        {
-            float weight = (float)i / yDivisionNum;
-            verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, weight));
-        }
+        //for (int i = 0; i < xDivisionNum; i++)
+        //{
+        //    float weight = (float)i / xDivisionNum;
+        //    horizontalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[3].position, weight));
+        //}
+        //for (int i = 0; i < yDivisionNum; i++) 
+        //{
+        //    float weight = (float)i / yDivisionNum;
+        //    verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, weight));
+        //}
 
-        for (int i = 0; i < yDivisionNum; i++)
-            for (int j = 0; j < xDivisionNum; j++)
-            {
-                fieldPoints.Add(new Vector3(horizontalPoints[j].x, verticalPoints[i].y, verticalPoints[i].z));
-            }
+        //for (int i = 0; i < yDivisionNum; i++)
+        //    for (int j = 0; j < xDivisionNum; j++)
+        //    {
+        //        fieldPoints.Add(new Vector3(horizontalPoints[j].x, verticalPoints[i].y, verticalPoints[i].z));
+        //    }
 
         Vector3 hInterval;
         Vector3 vInterval;
@@ -514,15 +514,25 @@ public class HitBox : MonoBehaviour
             float weight = (float)i / xDivisionNum;
             horizontalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[3].position, weight));
         }
-        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
-        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50 / 100));
-        verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75 / 100));
-        verticalPoints.Add(vertexs[0].position);
 
+        // 나중에 수정해야함 슈-퍼 하드코딩해놈
+        if (yDivisionNum == 1)
+        {
+            verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
+        }
+        else
+        {
+            verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
+            verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50 / 100));
+            verticalPoints.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75 / 100));
+            verticalPoints.Add(vertexs[0].position);
+        }
         for (int i = 0; i < yDivisionNum; i++)
             for (int j = 0; j < xDivisionNum; j++)
             {
                 fieldPoints.Add(new Vector3(horizontalPoints[j].x, verticalPoints[i].y, verticalPoints[i].z));
+
+                Debug.Log(transform.name +" : fieldPoints : " + fieldPoints[fieldPoints.Count-1]);
             }
     }
 }

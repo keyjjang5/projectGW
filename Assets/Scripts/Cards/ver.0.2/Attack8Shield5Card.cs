@@ -15,9 +15,9 @@ namespace GWCardVer_0_2
         {
             fileName = "Attack8Shield5Card";
             AddEffect(new SingleAttackEffect("singleAtk8", 8));
-            AddEffect(new SelfShieldEffect("selfShield5", 5));
+            AddEffect(new PlayerSelfShieldEffect("selfShield5", 5));
             SetImage();
-            Description = "Target Atk 8 Self Def 5";
+            Description = "대상에게 8 피해를 입힌다. 보호막 5를 얻는다.";
             cost = 1;
         }
     }

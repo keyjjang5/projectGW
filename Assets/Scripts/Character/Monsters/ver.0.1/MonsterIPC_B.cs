@@ -19,8 +19,8 @@ namespace GWMonsterVer_0_1
 
         public override void SetAttacks()
         {
-            Attacks.Add(new Attack(IconType.NormalAttack, 7, 0, "A1"));
-            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 7));
+            Attacks.Add(new Attack(IconType.NormalAttack, 8, 0, "A1"));
+            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 8));
 
             Attacks.Add(new Attack(IconType.Recovery, 10, 0, "A2"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SelfHealEffect("A2", 10));
