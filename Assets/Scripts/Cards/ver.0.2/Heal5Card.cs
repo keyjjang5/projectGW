@@ -16,8 +16,8 @@ namespace GWCardVer_0_2
             fileName = "Heal5Card";
             AddEffect(new SingleHealEffect("target Heal 5", 5));
             SetImage();
-            Description = "Target Heal 5";
-            cost = 1;
+            Description = "대상을 5 회복시킨다.";
+            cost = 2;
         }
     }
 }

@@ -91,11 +91,13 @@ public class HitBox : MonoBehaviour
                 if (!(pos % 3 == 2))
                     BattleField.Instance.Hited(pos + 1, attack.Power);
                 break;
+
             case (AttackType.ColB2):
                 BattleField.Instance.Hited(pos, attack.Power);
                 if (!(pos / 6 >= 1))
                     BattleField.Instance.Hited(pos + 3, attack.Power);
                 break;
+
             case (AttackType.ColLine):
                 BattleField.Instance.Hited(pos, attack.Power);
                 if (!(pos / 6 >= 1))
@@ -103,6 +105,7 @@ public class HitBox : MonoBehaviour
                 if (!(pos / 3 < 1))
                     BattleField.Instance.Hited(pos - 3, attack.Power);
                 break;
+
             case (AttackType.FullCross):
                 BattleField.Instance.Hited(pos, attack.Power);
                 if (!(pos / 6 >= 1))
@@ -114,6 +117,19 @@ public class HitBox : MonoBehaviour
                 if (!(pos / 3 < 1))
                     BattleField.Instance.Hited(pos - 3, attack.Power);
                 break;
+
+            case (AttackType.X):
+                BattleField.Instance.Hited(pos, attack.Power);
+                if ((pos + 4) % 3 != 0 && pos + 4 <= 8)
+                    BattleField.Instance.Hited(pos + 4, attack.Power);
+                if ((pos + 2) % 3 != 2 && pos + 2 <= 7)
+                    BattleField.Instance.Hited(pos + 2, attack.Power);
+                if ((pos - 2) % 3 != 0 && pos - 2 >= 1)
+                    BattleField.Instance.Hited(pos - 2, attack.Power);
+                if ((pos - 4) % 3 != 2 && pos - 4 >= 0)
+                    BattleField.Instance.Hited(pos - 4, attack.Power);
+                break;
+
             case (AttackType.All):
                 for (int i = 0; i < 9; i++)
                     BattleField.Instance.Hited(i, attack.Power);
@@ -277,7 +293,7 @@ public class HitBox : MonoBehaviour
                 break;
             case (ShieldType.Mass):
                 for (int i = 0; i < PartySystem.characters.Count; i++)
-                    BattleField.Instance.Heal(i, shieldStruct.Power);
+                    BattleField.Instance.AddShield(i, shieldStruct.Power);
                 break;
             default:
                 break;
@@ -299,7 +315,7 @@ public class HitBox : MonoBehaviour
                 break;
             case (ShieldType.Mass):
                 for (int i = 0; i < PartySystem.characters.Count; i++)
-                    PartySystem.Heal(i, shieldStruct.Power);
+                    PartySystem.AddShield(i, shieldStruct.Power);
                 break;
             default:
                 break;

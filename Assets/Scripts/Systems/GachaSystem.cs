@@ -64,21 +64,21 @@ public class GachaSystem : MonoBehaviour
         //temp = new CharacterD("GachaD", 32);
         //rare4Pool.Add(temp.id, temp);
 
-        PartyMember temp = new CharacterIPC_A("하나비", 23);
+        PartyMember temp = new CharacterIPC_A("하나비", 18);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_B("모니카", 33);
+        temp = new CharacterIPC_B("모니카", 23);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_C("사라", 30);
+        temp = new CharacterIPC_C("사라", 20);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_D("리나", 28);
+        temp = new CharacterIPC_D("리나", 19);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_E("엘리시아", 38);
+        temp = new CharacterIPC_E("엘리시아", 25);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_F("셰이드", 28);
+        temp = new CharacterIPC_F("셰이드", 21);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_G("노아", 33);
+        temp = new CharacterIPC_G("노아", 22);
         rare1Pool.Add(temp.id, temp);
-        temp = new CharacterIPC_H("소피", 26);
+        temp = new CharacterIPC_H("소피", 21);
         rare1Pool.Add(temp.id, temp);
 
 

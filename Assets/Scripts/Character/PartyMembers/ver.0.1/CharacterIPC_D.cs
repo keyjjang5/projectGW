@@ -16,10 +16,10 @@ public class CharacterIPC_D : PartyMember
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new MassAtk20Card(GetCharacter(), "아이스 블래스트"));
-        AddCard(new Recovery2CostDraw2Card(GetCharacter(), "정신 집중"));
-        AddCard(new VerticalAtk15Card(GetCharacter(), "라이트닝 스피어"));
-        AddCard(new VerticalAtk15Card(GetCharacter(), "라이트닝 스피어"));
+        AddCard(new MassAtk19Card(GetCharacter(), "아이스 블래스트"));
+        AddCard(new Recovery3CostDraw2Card(GetCharacter(), "정신 집중"));
+        AddCard(new VerticalAtk10Card(GetCharacter(), "라이트닝 스피어"));
+        AddCard(new VerticalAtk10Card(GetCharacter(), "라이트닝 스피어"));
     }
 
     public override Character DeepCopy()

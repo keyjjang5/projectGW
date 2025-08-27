@@ -32,14 +32,14 @@ public class PlayerData : MonoBehaviour
         //AddCharacter(new CharacterD("Mage", 32));
         //AddCharacter(new CharacterTest("atkcardTest", 30));
 
-        //AddCharacter(new CharacterIPC_A("하나비", 23));
-        AddCharacter(new CharacterIPC_B("모니카", 33));
-        //AddCharacter(new CharacterIPC_C("사라", 30));
-        //AddCharacter(new CharacterIPC_D("리나", 28));
-        //AddCharacter(new CharacterIPC_E("엘리시아", 38));
-        //AddCharacter(new CharacterIPC_F("셰이드", 28));
-        AddCharacter(new CharacterIPC_G("노아", 33));
-        //AddCharacter(new CharacterIPC_H("소피", 26));
+        //AddCharacter(new CharacterIPC_A("하나비", 18));
+        AddCharacter(new CharacterIPC_B("모니카", 23));
+        //AddCharacter(new CharacterIPC_C("사라", 20));
+        //AddCharacter(new CharacterIPC_D("리나", 19));
+        //AddCharacter(new CharacterIPC_E("엘리시아", 25));
+        //AddCharacter(new CharacterIPC_F("셰이드", 21));
+        AddCharacter(new CharacterIPC_G("노아", 22));
+        //AddCharacter(new CharacterIPC_H("소피", 21));
 
     }
 

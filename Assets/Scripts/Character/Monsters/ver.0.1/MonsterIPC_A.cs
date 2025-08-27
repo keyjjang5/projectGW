@@ -19,8 +19,8 @@ namespace GWMonsterVer_0_1
 
         public override void SetAttacks()
         {
-            Attacks.Add(new Attack(IconType.NormalAttack, 12, 0, "A1"));
-            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 12));
+            Attacks.Add(new Attack(IconType.NormalAttack, 13, 0, "A1"));
+            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 13));
 
             Attacks.Add(new Attack(IconType.Shield, 10, 0, "A2"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SelfShieldEffect("A2", 10));
@@ -30,7 +30,7 @@ namespace GWMonsterVer_0_1
         {
             Attack returnValue;
 
-            if (Random.Range(0, 2) == 0)
+            if (time % 2 == 0)
             {
                 SetTarget(AttackType.Random);
                 returnValue = Attacks[0];

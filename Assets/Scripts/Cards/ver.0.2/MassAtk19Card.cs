@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using System;
+using GWEffectVer_0_2;
+
+// 카드 예시
+namespace GWCardVer_0_2
+{
+    [Serializable]
+    public class MassAtk19Card : Card
+    {
+        public MassAtk19Card(Character parent, string name = "default") : base(parent, name)
+        {
+            fileName = "MassAtk19Card";
+            AddEffect(new MassAttackEffect("Mass Atk 19", 19));
+            SetImage();
+            Description = "전체 범위에 19 피해";
+            cost = 3;
+        }
+    }
+}

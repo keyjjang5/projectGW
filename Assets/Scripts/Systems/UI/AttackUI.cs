@@ -102,9 +102,6 @@ public class AttackUI : MonoBehaviour
     //  몬스터야 니 정보를 줘
     public void UpdateUI(Monster monster)
     {
-        //foreach (var atk in Attacks)
-        //    atk.SetActive(false);
-
         //  아이콘 이미지를 업데이트한다.
         switch (monster.NowAttack.Type)
         {
@@ -139,12 +136,11 @@ public class AttackUI : MonoBehaviour
             var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position;
 
             
-            if(monster.NowAttack.Type != IconType.NormalAttack)
-                Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, Vector3.zero);
-            else
+            if(monster.NowAttack.Type == IconType.NormalAttack
+                || monster.NowAttack.Type == IconType.UnknownAttack)
                 Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, endP - startP);
-            Debug.Log("attacckUI : updateUI(object)");
-
         }
+        else
+            Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, Vector3.zero);
     }
 }

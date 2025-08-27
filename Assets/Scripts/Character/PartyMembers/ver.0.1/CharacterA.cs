@@ -16,10 +16,10 @@ public class CharacterA : PartyMember
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new Attack8Shield5Card(GetCharacter()));
-        AddCard(new Attack8Shield5Card(GetCharacter()));
-        AddCard(new TargetShield7Card(GetCharacter()));
-        AddCard(new RowR2Atk8Card(GetCharacter()));
+        //AddCard(new Attack8Shield5Card(GetCharacter()));
+        //AddCard(new Attack8Shield5Card(GetCharacter()));
+        //AddCard(new TargetShield7Card(GetCharacter()));
+        //AddCard(new RowR2Atk8Card(GetCharacter()));
     }
 
     public override Character DeepCopy()

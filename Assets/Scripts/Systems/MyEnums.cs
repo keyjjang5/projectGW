@@ -34,6 +34,7 @@ public enum AttackType
     ColF3,
     ColLine,
     FullCross,
+    X,
     Random,
     All,
     Self,
