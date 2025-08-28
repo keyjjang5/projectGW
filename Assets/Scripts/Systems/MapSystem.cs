@@ -17,6 +17,7 @@ public class MapSystem : MonoBehaviour
     List<Map> shopMaps;
 
     List<Map> weakBattleMaps;
+    List<Map> eliteBattleMaps;
 
     public int mapProgress;
 
@@ -52,6 +53,9 @@ public class MapSystem : MonoBehaviour
         weakBattleMaps.Add(new BattleMapIPC_006());
         weakBattleMaps.Add(new BattleMapIPC_007());
         weakBattleMaps.Add(new BattleMapIPC_008());
+
+        eliteBattleMaps = new List<Map>();
+        eliteBattleMaps.Add(new BattleMapIPC_Elite_001());
 
 
         campMaps = new List<Map>();
@@ -139,15 +143,17 @@ public class MapSystem : MonoBehaviour
         //    return CampMap().Deepcopy();
 
         // 임시로 3 > 2로 바꿔놓음 전투와 캠프만 있다.
-        switch (mapProgress % 6)
+        switch (mapProgress % 7)
         {
             //  캠프
-            case (0):
             case (3):
+            case (6):
                 returnMap = CampMap();
                 break;
             //  전투
             case (1):
+                //returnMap = new BattleMap001();
+                //break;
             case (2):
                 //returnMap = new BattleMap001();
                 returnMap = RandomWeakBattleMap();
@@ -155,6 +161,9 @@ public class MapSystem : MonoBehaviour
             case (4):
             case (5):
                 returnMap = RandomBattleMap();
+                break;
+            case (0):
+                returnMap = RandomEliteBattleMap();
                 break;
             //  랜덤 사건(전투 : 상점 : 이벤트 = 2 : 1 : 1)
             // 임시로 미뤄놓음
@@ -183,6 +192,13 @@ public class MapSystem : MonoBehaviour
         int temp = Random.Range(0, weakBattleMaps.Count);
 
         return weakBattleMaps[temp].Deepcopy();
+    }
+
+    public Map RandomEliteBattleMap()
+    {
+        int temp = Random.Range(0, eliteBattleMaps.Count);
+
+        return eliteBattleMaps[temp].Deepcopy();
     }
 
     //  ? 노드에 들어갈 맵을 선정한다.

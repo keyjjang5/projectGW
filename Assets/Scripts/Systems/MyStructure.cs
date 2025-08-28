@@ -80,6 +80,20 @@ public struct StatusStruct
     }
 }
 
+public struct AdditionalEffectStruct
+{
+    public int TargetPos;
+    public List<BattleEffect> effects;
+    public AdditionalType type;
+
+    public AdditionalEffectStruct(AdditionalType type = AdditionalType.Chain, int targetPos = -1)
+    {
+        this.type = type;
+        TargetPos = targetPos;
+        effects = new List<BattleEffect>();
+    }
+}
+
 public struct RewardStruct
 {
     public RewardType rewardType;

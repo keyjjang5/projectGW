@@ -548,7 +548,59 @@ public class HitBox : MonoBehaviour
             {
                 fieldPoints.Add(new Vector3(horizontalPoints[j].x, verticalPoints[i].y, verticalPoints[i].z));
 
-                Debug.Log(transform.name +" : fieldPoints : " + fieldPoints[fieldPoints.Count-1]);
+                //Debug.Log(transform.name +" : fieldPoints : " + fieldPoints[fieldPoints.Count-1]);
             }
+    }
+
+    public void CheckAdditionalEffect(AdditionalEffectStruct additionalEffectStruct)
+    {
+        switch(additionalEffectStruct.type)
+        {
+            case (AdditionalType.Chain):
+                CheckChain(additionalEffectStruct);
+                break;
+            case (AdditionalType.Isolation):
+                CheckIsolation(additionalEffectStruct);
+                break;
+            default:
+                Debug.Log("CheckAdditionalEffect Error");
+                break;
+        }
+    }
+
+    public void CheckChain(AdditionalEffectStruct additionalEffectStruct)
+    {
+        int pos = -1;
+        if (additionalEffectStruct.TargetPos < 0)
+            pos = SearchPos();
+        else
+            pos = additionalEffectStruct.TargetPos;
+
+        if(BattleField.Instance.SearchMonster(pos+3) != null)
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+
+        if (BattleField.Instance.SearchMonster(pos + 1) != null)
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+
+        if (BattleField.Instance.SearchMonster(pos - 1) != null)
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+
+        if (BattleField.Instance.SearchMonster(pos - 3) != null)
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+    }
+
+    public void CheckIsolation(AdditionalEffectStruct additionalEffectStruct)
+    {
+        int pos = -1;
+        if (additionalEffectStruct.TargetPos < 0)
+            pos = SearchPos();
+        else
+            pos = additionalEffectStruct.TargetPos;
+
+        if (BattleField.Instance.SearchMonster(pos + 3) == null
+            && BattleField.Instance.SearchMonster(pos + 1) == null
+            && BattleField.Instance.SearchMonster(pos - 1) == null
+            && BattleField.Instance.SearchMonster(pos - 3) == null)
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
     }
 }

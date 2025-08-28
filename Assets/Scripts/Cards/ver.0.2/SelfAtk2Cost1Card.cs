@@ -14,7 +14,7 @@ namespace GWCardVer_0_2
         public SelfAtk2Cost1Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "SelfAtk2Cost1Card";
-            AddEffect(new SelfAttackEffect("Self Atk2", 2));
+            AddEffect(new PlayerSelfAttackEffect("Self Atk2", 2));
             AddEffect(new RecoveryCostEffect("Regenate Cost 1", 1));
             SetImage();
             Description = "스스로에게 피해 2, 코스트 1회복";

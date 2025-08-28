@@ -33,13 +33,15 @@ public class PlayerData : MonoBehaviour
         //AddCharacter(new CharacterTest("atkcardTest", 30));
 
         //AddCharacter(new CharacterIPC_A("하나비", 18));
-        AddCharacter(new CharacterIPC_B("모니카", 23));
+        //AddCharacter(new CharacterIPC_B("모니카", 23));
         //AddCharacter(new CharacterIPC_C("사라", 20));
         //AddCharacter(new CharacterIPC_D("리나", 19));
         //AddCharacter(new CharacterIPC_E("엘리시아", 25));
         //AddCharacter(new CharacterIPC_F("셰이드", 21));
-        AddCharacter(new CharacterIPC_G("노아", 22));
+        //AddCharacter(new CharacterIPC_G("노아", 22));
         //AddCharacter(new CharacterIPC_H("소피", 21));
+
+        AddCharacter(new CharacterIPC_ChainTest("테스터", 100));
 
     }
 

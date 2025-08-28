@@ -71,10 +71,18 @@ public enum StatusEffectType
     Poison
 }
 
+public enum AdditionalType
+{
+    Chain,
+    Isolation,
+    Cooperation
+}
+
 public enum IconType
 {
     NormalAttack,
     UnknownAttack,
+    MassAttack,
     Buff,
     Debuff,
     Shield,
