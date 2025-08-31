@@ -191,6 +191,8 @@ public class Monster : Character
 
     public void SetTarget(AttackType attackType)
     {
+        if (PartySystem.Instance.characters.Count <= 0)
+            return;
         switch(attackType)
         {
             case (AttackType.Random):

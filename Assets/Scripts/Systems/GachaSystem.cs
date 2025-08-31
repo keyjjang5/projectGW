@@ -80,6 +80,12 @@ public class GachaSystem : MonoBehaviour
         rare1Pool.Add(temp.id, temp);
         temp = new CharacterIPC_H("소피", 21);
         rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_I("캐서린", 22);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_J("제니", 20);
+        rare1Pool.Add(temp.id, temp);
+        temp = new CharacterIPC_K("힐다", 23);
+        rare1Pool.Add(temp.id, temp);
 
 
 
@@ -166,7 +172,6 @@ public class GachaSystem : MonoBehaviour
 
         var tempId = CharacterIdRandomSelect();
         tempMember = GetPartyMember(tempId);
-
         SelectUI.UpdateUI();
         // 여기에 캐릭터 결과 나오게 해야함
         gachaUi.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<Image>().sprite = tempMember.ldImage;
@@ -181,7 +186,7 @@ public class GachaSystem : MonoBehaviour
                 tempInfo = "단일 데미지. 강제 이동.";
                 break;
             case ("C_007"):
-                tempInfo = "단일 데미지,  드로우.";
+                tempInfo = "단일 데미지, 드로우.";
                 break;
             case ("C_008"):
                 tempInfo = "범위 데미지, 드로우.";
@@ -197,6 +202,15 @@ public class GachaSystem : MonoBehaviour
                 break;
             case ("C_012"):
                 tempInfo = "힐과 드로우.";
+                break;
+            case ("C_013"):
+                tempInfo = "유틸 및 보조딜.";
+                break;
+            case ("C_014"):
+                tempInfo = "범위 딜 누적.";
+                break;
+            case ("C_015"):
+                tempInfo = "보호막 제공 및 유틸.";
                 break;
             default:
                 tempInfo = "오류입니다.";

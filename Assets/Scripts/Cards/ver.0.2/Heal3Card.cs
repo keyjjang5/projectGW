@@ -15,9 +15,14 @@ namespace GWCardVer_0_2
         {
             fileName = "Heal3Card";
             AddEffect(new SingleHealEffect("target Heal 3", 3));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new DrawEffect("Draw 1", 1));
+            AddEffect(new CooperationEffect(temp, "Cooperation Draw 1", 1));
+
             SetImage();
-            Description = "대상을 3 회복시킨다.";
-            cost = 1;
+            Description = "대상을 3 회복시킨다. [협력] : 1장을 뽑는다.";
+            cost = 0;
         }
     }
 }

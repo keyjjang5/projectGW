@@ -23,6 +23,9 @@ namespace GWEffectVer_0_2
             if (Target != null)
                 pos = Target.Pos;
 
+            Debug.Log("active : pos : " + user.GetCharacter().Pos);
+
+
             Hitbox = GameObject.Find("PartyHitBox");
             Hitbox.BroadcastMessage("Heal", new HealStruct(HealType.Single, NowPower, user.GetCharacter().Pos));
         }

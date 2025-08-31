@@ -45,6 +45,7 @@ public class GameLoopSystem : MonoBehaviour
         IsMyTurn = true;
 
         PartySystem.Instance.StartTurn();
+        
 
         CostSystem.ResetCost();
 
@@ -88,7 +89,7 @@ public class GameLoopSystem : MonoBehaviour
     {
         BattleField.Instance.ActivateMonster();
 
-        BattleEffectSystem.Instance.dealBattleEffect();
+        BattleEffectSystem.Instance.DealBattleEffect();
 
         Debug.Log("MainEnemyTurn End");
     }
@@ -96,6 +97,10 @@ public class GameLoopSystem : MonoBehaviour
     public void EndEnemyTurn()
     {
         BattleField.Instance.EndTurn();
+
+        //임시
+        BattleEffectSystem.Instance.ResetPlayer();
+        PartySystem.Instance.CheckBattleEnd();
 
         Debug.Log("EndEnemyTurn End");
     }
@@ -122,15 +127,19 @@ public class GameLoopSystem : MonoBehaviour
     {
         //PartySystem.Instance.CheckCondition();
         DeckSystem.DiscardAll();
+        
+        //임시
+        BattleEffectSystem.Instance.ResetPlayer();
+
         PartySystem.Instance.EndBattle();
         PartyUI.EndUI();
         BattleField.EndGame();
 
         RewardUI.SetActive(true);
 
-        RewardUI.AddReward(new RewardStruct(RewardType.Money, Random.Range(30, 80), "money"));
+        RewardUI.AddReward(new RewardStruct(RewardType.Money, Random.Range(75, 90), "money"));
         // 임시 보상임
-        RewardUI.AddReward(new RewardStruct(RewardType.Item, 0, "T_001"));
+        //RewardUI.AddReward(new RewardStruct(RewardType.Item, 0, "T_001"));
 
 
         //MapSystem.Instance.EscapeMap();

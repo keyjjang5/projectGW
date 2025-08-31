@@ -92,6 +92,14 @@ public class HitBox : MonoBehaviour
                     BattleField.Instance.Hited(pos + 1, attack.Power);
                 break;
 
+            case (AttackType.RowLine):
+                BattleField.Instance.Hited(pos, attack.Power);
+                if (!(pos % 3 == 2))
+                    BattleField.Instance.Hited(pos + 1, attack.Power);
+                if (!(pos % 3 == 0))
+                    BattleField.Instance.Hited(pos - 1, attack.Power);
+                break;
+
             case (AttackType.ColB2):
                 BattleField.Instance.Hited(pos, attack.Power);
                 if (!(pos / 6 >= 1))
@@ -562,6 +570,9 @@ public class HitBox : MonoBehaviour
             case (AdditionalType.Isolation):
                 CheckIsolation(additionalEffectStruct);
                 break;
+            case (AdditionalType.Cooperation):
+                CheckCooperation(additionalEffectStruct);
+                break;
             default:
                 Debug.Log("CheckAdditionalEffect Error");
                 break;
@@ -603,4 +614,22 @@ public class HitBox : MonoBehaviour
             && BattleField.Instance.SearchMonster(pos - 3) == null)
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
     }
+
+    public void CheckCooperation(AdditionalEffectStruct additionalEffectStruct)
+    {
+        int pos = -1;
+        if (additionalEffectStruct.TargetPos < 0)
+        {
+            if (gameObject.name == "BattleFieldHitBox")
+                pos = SearchPos();
+            else if (gameObject.name == "PartyHitBox")
+                pos = ssSearchPos();
+        }
+        else
+            pos = additionalEffectStruct.TargetPos;
+
+        if (BattleEffectSystem.Instance.CheckPlayer(additionalEffectStruct.effects[0].user.GetCharacter()))
+            BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+    }
+
 }

@@ -14,9 +14,9 @@ namespace GWCardVer_0_2
         public ColB2Atk7Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "ColB2Atk7Card";
-            AddEffect(new ColB2AttackEffect("Row B2 Atk7", 7));
+            AddEffect(new ColB2AttackEffect("Row B2 Atk8", 8));
             SetImage();
-            Description = "대상 기준으로 1*2 범위에 7 피해를 입힌다.";
+            Description = "대상 기준으로 1*2 범위에 8 피해를 입힌다.";
             cost = 1;
         }
     }

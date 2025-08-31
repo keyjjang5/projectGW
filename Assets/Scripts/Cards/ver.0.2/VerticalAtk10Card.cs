@@ -15,8 +15,13 @@ namespace GWCardVer_0_2
         {
             fileName = "VerticalAtk10Card";
             AddEffect(new ColLineAttackEffect("Vertical Atk 10", 10));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new SingleAttackEffect("chain atk 1", 1));
+            AddEffect(new ChainEffect(temp, "chain atk 1", 1));
+
             SetImage();
-            Description = "세로범위에 10 피해";
+            Description = "세로범위에 10 피해를 입힌다. [연쇄] : 대상에게 1 피해를 입힌다.";
             cost = 2;
         }
     }

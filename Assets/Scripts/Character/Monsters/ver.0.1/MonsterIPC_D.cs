@@ -14,7 +14,7 @@ namespace GWMonsterVer_0_1
             id = "M_008";
             name = "Small Warrior";
 
-            scale = new Vector3(1f, 1f, 1f);
+            scale = new Vector3(1.5f, 1.5f, 1.5f);
         }
 
         public override void SetAttacks()
@@ -22,7 +22,7 @@ namespace GWMonsterVer_0_1
             Attacks.Add(new Attack(IconType.NormalAttack, 6, 0, "A1"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 8));
 
-            Attacks.Add(new Attack(IconType.UnknownAttack, 4, 0, "A2"));
+            Attacks.Add(new Attack(IconType.Shield, 4, 0, "A2"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SelfShieldEffect("A2", 6));
         }
 

@@ -11,14 +11,14 @@ public class CharacterIPC_ChainTest : PartyMember
 {
     public CharacterIPC_ChainTest(string name = "default", float maxhp = 100, int pos = 0) : base(name, maxhp, pos)
     {
-        id = "C_013";
+        id = "C_999";
         SetImage();
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new Atk10Isolation4Card(GetCharacter(), "고립"));
-        AddCard(new Atk10Isolation4Card(GetCharacter(), "고립"));
-        AddCard(new Atk10Isolation4Card(GetCharacter(), "고립"));
+        AddCard(new Atk10Cooperation2Card(GetCharacter(), "연계"));
+        AddCard(new Atk10Cooperation2Card(GetCharacter(), "연계"));
+        AddCard(new Atk10Cooperation2Card(GetCharacter(), "연계"));
     }
 
     public override Character DeepCopy()

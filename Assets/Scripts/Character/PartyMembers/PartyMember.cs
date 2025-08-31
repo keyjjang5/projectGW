@@ -98,6 +98,12 @@ public class PartyMember : Character
     {
         Pos = pos;
 
+        //  카드들의 값도 갱신해줘야함
+        foreach (var card in cards)
+            foreach (var effect in card.CardEffects)
+                effect.SetUser(this);
+
+
         Change.Invoke();
     }
 

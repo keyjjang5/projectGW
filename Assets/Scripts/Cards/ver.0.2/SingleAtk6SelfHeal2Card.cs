@@ -15,9 +15,15 @@ namespace GWCardVer_0_2
         {
             fileName = "SingleAtk6SelfHeal2Card";
             AddEffect(new SingleAttackEffect("Single Atk 6", 6));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new SingleAttackEffect("Cooperation atk 2", 2));
+            AddEffect(new CooperationEffect(temp, "Cooperation atk 2", 2));
+
             AddEffect(new PlayerSelfHealEffect("Self Heal 2", 2));
+
             SetImage();
-            Description = "대상에게 6 피해를 입힌다. 자신의 체력을 2 회복한다.";
+            Description = "대상에게 6 피해를 입힌다. 자신의 체력을 2 회복한다. [협력] : 대상에게 2 피해를 입힌다.";
             cost = 1;
         }
     }

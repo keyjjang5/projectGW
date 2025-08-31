@@ -22,7 +22,7 @@ namespace GWMonsterVer_0_1
             Attacks.Add(new Attack(IconType.NormalAttack, 9, 0, "A1"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A1", 9));
 
-            Attacks.Add(new Attack(IconType.UnknownAttack, 4, 0, "A2"));
+            Attacks.Add(new Attack(IconType.PlusAttack, 4, 0, "A2"));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A2", 4));
             Attacks[Attacks.Count - 1].AddBattleEffect(new SelfHealEffect("A2", 4));
         }

@@ -19,7 +19,6 @@ public class CharacterIPC_F : PartyMember
         AddCard(new SingleAtk16Card(GetCharacter(), "조준 사격"));
         AddCard(new SingleAtk16Card(GetCharacter(), "조준 사격"));
         AddCard(new Draw1Card(GetCharacter(), "스피드 리로드"));
-        AddCard(new Draw1Card(GetCharacter(), "스피드 리로드"));
     }
 
     public override Character DeepCopy()

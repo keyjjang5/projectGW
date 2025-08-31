@@ -14,7 +14,7 @@ namespace GWMonsterVer_0_1
             id = "M_005";
             name = "Thief";
 
-            scale = new Vector3(1.5f, 1.5f, 1.5f);
+            scale = new Vector3(2f, 2f, 2f);
         }
 
         public override void SetAttacks()

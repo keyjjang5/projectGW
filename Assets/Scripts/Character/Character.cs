@@ -77,6 +77,8 @@ public class Character : ILife, IStatusEffect, IUser, ITurn
     public virtual void Hited(float value)
     {
         value = DamageCalculator.CalcHitDamage(value);
+        if (NowHp <= 0)
+            return;
 
         if (Shield >= value)
             Shield -= value;

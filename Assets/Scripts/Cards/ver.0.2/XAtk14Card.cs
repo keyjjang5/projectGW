@@ -15,8 +15,13 @@ namespace GWCardVer_0_2
         {
             fileName = "XAtk14Card";
             AddEffect(new XAttackEffect("X Atk 14", 14));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new SingleAttackEffect("chain atk 1", 1));
+            AddEffect(new ChainEffect(temp, "chain atk 1", 1));
+
             SetImage();
-            Description = "X범위에 14 피해";
+            Description = "X범위에 14 피해를 입힌다. [연쇄] : 대상에게 1 피해를 입힌다.";
             cost = 2;
         }
     }

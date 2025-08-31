@@ -14,10 +14,10 @@ namespace GWCardVer_0_2
         public Attack5Shield4Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "Attack5Shield4Card";
-            AddEffect(new SingleAttackEffect("singleAtk5", 5));
+            AddEffect(new SingleAttackEffect("singleAtk 7", 7));
             AddEffect(new PlayerSelfShieldEffect("selfShield4", 4));
             SetImage();
-            Description = "대상에게 5 피해를 입힌다. 보호막 4를 얻는다.";
+            Description = "대상에게 7 피해를 입힌다. 보호막 4를 얻는다.";
             cost = 1;
         }
     }

@@ -135,7 +135,7 @@ public class BattleField : MonoBehaviour, ITurn
 
         for (int i = 0; i < verticalTemp.Count; i++)
         {
-            spawns.Add(new Vector3(verticalTemp[i].x, verticalTemp[i].y + 1, verticalTemp[i].z));
+            spawns.Add(new Vector3(verticalTemp[i].x, verticalTemp[i].y + 1, verticalTemp[i].z - 0.1f));
             isSpawn.Add(false);
         }
 
@@ -459,8 +459,9 @@ public class BattleField : MonoBehaviour, ITurn
         foreach (var monster in monsters)
             monster.EndTurn();
 
-        if(IsFirstLineClear())
-            AllMoveForward();
+        //  몬스터가 자동으로 앞으로 오는 것 없애기로함
+        //if(IsFirstLineClear())
+        //    AllMoveForward();
     }
 
     public void FindAttack()

@@ -50,6 +50,7 @@ public class Card
         {
             effect.SetHitbox(target);
             effect.SetUser(parent);
+            Debug.Log("effect.pos : " + effect.user.GetCharacter().Pos);
         }
         //Å×½ºÆ®
         

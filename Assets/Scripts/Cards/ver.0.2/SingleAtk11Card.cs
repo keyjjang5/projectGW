@@ -15,8 +15,13 @@ namespace GWCardVer_0_2
         {
             fileName = "SingleAtk11Card";
             AddEffect(new SingleAttackEffect("single atk 11", 11));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new SingleAttackEffect("Isolation atk 2", 2));
+            AddEffect(new IsolationEffect(temp, "Isolation atk 2", 2));
+
             SetImage();
-            Description = "대상에게 피해 11를 입힌다.";
+            Description = "대상에게 11 피해를 입힌다. [고립] : 대상에게 2 피해를 입힌다.";
             cost = 1;
         }
     }

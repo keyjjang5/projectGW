@@ -19,6 +19,7 @@ namespace GWCardVer_0_2
             List<BattleEffect> temp = new List<BattleEffect>();
             temp.Add(new SingleAttackEffect("chain atk 1", 1));
             AddEffect(new ChainEffect(temp, "chain atk 1", 1));
+
             SetImage();
             Description = "대상에게 10 피해를 입힌다. [연쇄] : 피해 1을 입힌다.";
             cost = 1;

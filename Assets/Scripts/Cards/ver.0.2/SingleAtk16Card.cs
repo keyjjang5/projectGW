@@ -15,8 +15,13 @@ namespace GWCardVer_0_2
         {
             fileName = "SingleAtk16Card";
             AddEffect(new SingleAttackEffect("Target Atk 16", 16));
+
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new SingleAttackEffect("Isolation atk 3", 3));
+            AddEffect(new IsolationEffect(temp, "Isolation atk 3", 3));
+
             SetImage();
-            Description = "대상에게 피해 16";
+            Description = "대상에게 16 피해를 입힌다. [고립] : 추가로 3피해를 입힌다.";
             cost = 2;
         }
     }

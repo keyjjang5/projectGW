@@ -46,6 +46,8 @@ public class AttackUI : MonoBehaviour
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/Attack"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/Defense"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/health-bar"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/PlusAttack"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/AllAttack"));
     }
 
     public void ShowUI()
@@ -114,10 +116,24 @@ public class AttackUI : MonoBehaviour
                 Debug.Log("sprites error? : " + Sprites[1]);
                 Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[1];
                 break;
+
+            case (IconType.PlusAttack):
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[4];
+                break;
+
+            case (IconType.MassAttack):
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[5];
+                break;
+
             case (IconType.Shield):
                 Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[2];
                 break;
+
             case (IconType.Recovery):
+                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
+                break;
+
+            default:
                 Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
                 break;
         }

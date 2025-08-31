@@ -82,6 +82,7 @@ public enum IconType
 {
     NormalAttack,
     UnknownAttack,
+    PlusAttack,
     MassAttack,
     Buff,
     Debuff,

@@ -38,6 +38,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void GameWin()
+    {
+        SceneManager.LoadScene("Congratulation");
+    }
+
     public void GameExit()
     {
         #if UNITY_EDITOR

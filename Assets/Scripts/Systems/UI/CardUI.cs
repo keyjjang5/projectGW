@@ -19,7 +19,7 @@ public class CardUI : MonoBehaviour
         handUI = GameObject.Find("HandUI").GetComponent<HandUI>();
         deckSystem = GameObject.Find("MySystem").GetComponent<DeckSystem>();
 
-        baseScale = new Vector3(0.12f, 0.12f, 0.18f);
+        baseScale = new Vector3(0.15f, 0.20f, 0.20565f);
         //myCard = new Card();
         active = false;
 

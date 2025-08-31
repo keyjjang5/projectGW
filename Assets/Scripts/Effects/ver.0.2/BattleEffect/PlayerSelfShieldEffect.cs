@@ -22,6 +22,7 @@ namespace GWEffectVer_0_2
             int pos = -1;
             if (Target != null)
                 pos = Target.Pos;
+            Debug.Log("active : pos : " + user.GetCharacter().Pos);
 
             Hitbox = GameObject.Find("PartyHitBox");
             Hitbox.BroadcastMessage("AddShield", new ShieldStruct(ShieldType.Single, NowPower, user.GetCharacter().Pos));
