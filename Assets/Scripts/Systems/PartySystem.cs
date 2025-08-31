@@ -159,7 +159,7 @@ public class PartySystem : MonoBehaviour, ITurn
 
         GameLoopSystem.Instance.BattleEnd();
 
-        SceneController.Instance.GameEnd();
+        SceneController.Instance.GameLose();
         //MapSystem.Instance.EscapeMap();
     }
 

@@ -32,10 +32,15 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("SamplePlayScene");
     }
-    
+
     public void GameEnd()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void GameLose()
+    {
+        SceneManager.LoadScene("PlayerLose");
     }
 
     public void GameWin()

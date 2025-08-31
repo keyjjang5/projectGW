@@ -25,6 +25,12 @@ public class CampUI : MonoBehaviour
         //SetText(eventMap.text);
         //SetMainImage(eventMap.sprite);
         SetButtons(campMap.button1, campMap.button2, campMap.button3);
+
+        var button = transform.GetChild(6).GetChild(4).GetChild(0).GetComponent<Button>();
+        foreach (var method in campMap.button2)
+            button.onClick.AddListener(delegate { method(); });
+
+        button.onClick.AddListener(() => MapSystem.Instance.EscapeMap());
     }
 
     public void SetText(string text)

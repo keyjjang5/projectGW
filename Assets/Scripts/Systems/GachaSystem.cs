@@ -132,6 +132,8 @@ public class GachaSystem : MonoBehaviour
 
         gachaUi.SetActive(true);
         gachaUi.transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log("gachaUI : " + gachaUi.transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).name);
+        gachaUi.transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerData.Instance.money + " / 100";
 
         for (int i = 1; i < gachaUi.transform.childCount; i++)
             gachaUi.transform.GetChild(i).gameObject.SetActive(false);
