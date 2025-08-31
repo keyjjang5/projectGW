@@ -180,37 +180,44 @@ public class GachaSystem : MonoBehaviour
         switch(tempId)
         {
             case ("C_005"):
-                tempInfo = "폭발적인 광역 데미지, 코스트 회복.";
+                tempInfo = "폭발적인 광역 데미지, 코스트 회복. \n\n\n\n" +
+                    "<size=44><color=#DDC59D>연쇄</color> : 피해 받은 대상의 상하좌우에 적이 있을 때 추가 효과를 가진다. (적의 수만큼 발생한다)</size>";
                 break;
             case ("C_006"):
-                tempInfo = "단일 데미지. 강제 이동.";
+                tempInfo = "단일 데미지. 강제 이동.\n\n\n\n";
                 break;
             case ("C_007"):
-                tempInfo = "단일 데미지, 드로우.";
+                tempInfo = "단일 데미지, 드로우.\n\n\n\n" +
+                    "<color=#F33534>고립</color> : 피해 받은 대상의 상하좌우에 적이 없을 때 추가 효과를 가진다.";
                 break;
             case ("C_008"):
-                tempInfo = "범위 데미지, 드로우.";
+                tempInfo = "범위 데미지, 드로우.\n\n\n\n" +
+                    "<size=44><color=#DDC59D>연쇄</color> : 피해 받은 대상의 상하좌우에 적이 있을 때 추가 효과를 가진다. (적의 수만큼 발생한다)</size>";
                 break;
             case ("C_009"):
-                tempInfo = "단일 타겟, 자기 회복.";
+                tempInfo = "단일 타겟, 자기 회복.\n\n\n\n" +
+                    "<size=43><color=#36A0FF>협력</color> : 이번 차례에 다른 캐릭터가 카드를 사용 했다면 추가 효과를 가진다</size>";
                 break;
             case ("C_010"):
-                tempInfo = "강력한 단일딜.";
+                tempInfo = "강력한 단일딜.\n\n\n\n" +
+                    "<color=#F33534>고립</color> : 피해 받은 대상의 상하좌우에 적이 없을 때 추가 효과를 가진다.";
                 break;
             case ("C_011"):
-                tempInfo = "직선 데미지 + 이동기믹.";
+                tempInfo = "직선 데미지 + 이동기믹.\n\n\n\n";
                 break;
             case ("C_012"):
-                tempInfo = "힐과 드로우.";
+                tempInfo = "힐과 드로우.\n\n\n\n" +
+                    "<size=43><color=#36A0FF>협력</color> : 이번 차례에 다른 캐릭터가 카드를 사용 했다면 추가 효과를 가진다</size>";
                 break;
             case ("C_013"):
-                tempInfo = "유틸 및 보조딜.";
+                tempInfo = "유틸 및 보조딜.\n\n\n\n";
                 break;
             case ("C_014"):
-                tempInfo = "범위 딜 누적.";
+                tempInfo = "범위 딜 누적.\n\n\n\n";
                 break;
             case ("C_015"):
-                tempInfo = "보호막 제공 및 유틸.";
+                tempInfo = "보호막 제공 및 유틸.\n\n\n\n" +
+                    "<size=43><color=#36A0FF>협력</color> : 이번 차례에 다른 캐릭터가 카드를 사용 했다면 추가 효과를 가진다</size>";
                 break;
             default:
                 tempInfo = "오류입니다.";

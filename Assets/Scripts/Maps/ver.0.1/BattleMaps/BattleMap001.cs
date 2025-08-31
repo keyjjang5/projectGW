@@ -16,16 +16,13 @@ namespace GWMapVer_0_1
         {
             monsters = new List<Monster>()
                 {
-                    new MonsterA("MonsterA", 20, 2),
-                    new MonsterA("MonsterA", 20, 4),
-                    new MonsterB("MonsterB", 17, 3),
-                    new MonsterB("MonsterB", 17, 7)
-                    ,
-                    new MonsterB("MonsterB", 17, 0),
-                    new MonsterB("MonsterB", 17, 1),
-                    new MonsterB("MonsterB", 17, 5),
-                    new MonsterB("MonsterB", 17, 6),
-                    new MonsterB("MonsterB", 17, 8)
+                    new MonsterIPC_EliteA("MonsterD", 20, 0),
+                    new MonsterIPC_EliteA("MonsterD", 20, 3),
+                    new MonsterIPC_EliteA("MonsterD", 20, 6),
+
+                    new MonsterIPC_EliteA("MonsterC", 20, 2),
+                    new MonsterIPC_EliteA("MonsterC", 20, 5),
+                    new MonsterIPC_EliteA("MonsterC", 20, 8),
                 };
         }
 

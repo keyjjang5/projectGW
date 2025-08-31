@@ -143,24 +143,27 @@ public class MapSystem : MonoBehaviour
         //    return CampMap().Deepcopy();
 
         // 임시로 3 > 2로 바꿔놓음 전투와 캠프만 있다.
-        switch (mapProgress % 8)
+        switch (mapProgress % 9)
         {
             //  캠프
-            case (3):
-            case (6):
+            case (1):
+            case (4):
+            case (7):
                 returnMap = CampMap();
+//                returnMap = RandomEliteBattleMap();
+
                 break;
             //  전투
-            case (1):
             case (2):
+            case (3):
                 //returnMap = new BattleMap001();
                 returnMap = RandomWeakBattleMap();
                 break;
-            case (4):
             case (5):
+            case (6):
                 returnMap = RandomBattleMap();
                 break;
-            case (7):
+            case (8):
                 returnMap = RandomEliteBattleMap();
                 break;
             case (0):

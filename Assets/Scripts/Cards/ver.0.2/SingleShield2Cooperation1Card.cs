@@ -21,7 +21,7 @@ namespace GWCardVer_0_2
             AddEffect(new CooperationEffect(temp, "coop shield 1", 1));
 
             SetImage();
-            Description = "대상은 보호막 2를 얻는다. [협력] : 추가로 1을 얻는다.";
+            Description = "보호막 2를 얻는다. <color=#36A0FF>협력</color> : 추가로 1을 얻는다.";
             cost = 0;
         }
     }

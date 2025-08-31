@@ -21,7 +21,7 @@ namespace GWCardVer_0_2
             AddEffect(new ChainEffect(temp, "chain atk 1", 1));
 
             SetImage();
-            Description = "전체 범위에 19 피해를 입힌다. [연쇄] : 대상에게 1 피해를 입힌다.";
+            Description = "전체 범위에 19 피해를 입힌다. <color=#DDC59D>연쇄</color> : 추가로 1 피해를 입힌다.";
             cost = 3;
         }
     }

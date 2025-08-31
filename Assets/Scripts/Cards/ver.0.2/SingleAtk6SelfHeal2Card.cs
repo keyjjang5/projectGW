@@ -23,7 +23,7 @@ namespace GWCardVer_0_2
             AddEffect(new PlayerSelfHealEffect("Self Heal 2", 2));
 
             SetImage();
-            Description = "대상에게 6 피해를 입힌다. 자신의 체력을 2 회복한다. [협력] : 대상에게 2 피해를 입힌다.";
+            Description = "6 피해를 입히고 체력을 2 회복한다. <color=#36A0FF>협력</color> : 추가로 2 피해를 입힌다.";
             cost = 1;
         }
     }

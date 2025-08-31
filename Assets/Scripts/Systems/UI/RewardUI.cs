@@ -39,7 +39,8 @@ public class RewardUI : MonoBehaviour
         switch(reward.rewardType)
         {
             case (RewardType.Money):
-                temp.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Soul : " + reward.value;
+                temp.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "¿µÈ¥ : " + reward.value;
+                temp.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + reward.value;
 
                 temp.GetComponent<Button>().onClick.AddListener(() => PlayerData.Instance.AddMoney(reward.value));
                 temp.GetComponent<Button>().onClick.AddListener(() => Destroy(temp));

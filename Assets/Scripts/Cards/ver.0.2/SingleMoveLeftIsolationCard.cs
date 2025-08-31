@@ -19,7 +19,7 @@ namespace GWCardVer_0_2
             AddEffect(new SingleMoveLeftEffect("Move left", 1));            
             
             SetImage();
-            Description = "대상에게 5피해를 입히고 왼쪽으로 이동시킨다.";
+            Description = "5피해를 입히고 왼쪽으로 이동시킨다.";
             cost = 0;
         }
     }

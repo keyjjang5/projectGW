@@ -17,7 +17,7 @@ namespace GWCardVer_0_2
             AddEffect(new SingleAttackEffect("singleAtk 7", 7));
             AddEffect(new PlayerSelfShieldEffect("selfShield4", 4));
             SetImage();
-            Description = "대상에게 7 피해를 입힌다. 보호막 4를 얻는다.";
+            Description = "7 피해를 입히고 자신은 보호막 4를 얻는다.";
             cost = 1;
         }
     }

@@ -73,9 +73,15 @@ public class AttackUI : MonoBehaviour
             //  위치를 업데이트 한다.
             //  배틀필드에게 얻어올 수 있나? 자체 판단 에반데
             Vector3 monsterPos = BattleField.Instance.GetMonsterPos(i);
+
+            float correction = 0;
+            var tempgo = BattleField.Instance.GetGoMonster(i);
+            correction = tempgo.transform.GetChild(0).localScale.y + tempgo.transform.position.y;
+            correction = Camera.main.WorldToScreenPoint(new Vector3(0, correction, 0)).y;
+
             //Debug.Log("monsterpos : " + monsterPos);
             var rect = Attacks[i].GetComponent<RectTransform>();
-            rect.position = monsterPos;
+            rect.position = new Vector3(monsterPos.x, 0, monsterPos.z) + new Vector3(100, correction, 0);
             //rect.anchoredPosition = monsterPos;
 
             //UpdateUI(BattleField.Instance.SearchMonster(i));
@@ -147,9 +153,14 @@ public class AttackUI : MonoBehaviour
         // line용도 34번 줄의 이름과 같이 변경해줘야함
         if (monster.target is PartyMember)
         {
+            float correction = 0;
+            var tempgo = BattleField.Instance.GetGoMonster(monster.Pos);
+            correction = tempgo.transform.GetChild(0).localScale.y + tempgo.transform.position.y;
+            correction = Camera.main.WorldToScreenPoint(new Vector3(0, correction, 0)).y;
+
             var startP = BattleField.Instance.GetMonsterPos(monster.Pos);
             //var startP = Attacks[monster.Pos].transform.parent.position;
-            var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position;
+            var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position + new Vector3(-100, -correction + startP.y, 0);
 
             
             if(monster.NowAttack.Type == IconType.NormalAttack

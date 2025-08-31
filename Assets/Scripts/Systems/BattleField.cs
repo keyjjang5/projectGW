@@ -114,11 +114,15 @@ public class BattleField : MonoBehaviour, ITurn
 
         verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 0));
         verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)50/100));
-        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)75/100));
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, (float)79/100));
+
+        verticalPointsLeft.Add(Vector3.Lerp(vertexs[2].position, vertexs[0].position, 1));
 
         verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, 0));
         verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)50 / 100));
-        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)75 / 100));
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, (float)79 / 100));
+
+        verticalPointsRight.Add(Vector3.Lerp(vertexs[3].position, vertexs[1].position, 1));
 
         List<Vector3> horizonTemp = new List<Vector3>();
         List<Vector3> verticalTemp = new List<Vector3>();
@@ -128,14 +132,20 @@ public class BattleField : MonoBehaviour, ITurn
             {
                 //float weight = (float)j / divisionNum;
                 float weight = (float)1 / (divisionNum * 2) + (float)j / divisionNum;
-                verticalTemp.Add(Vector3.Lerp(verticalPointsLeft[i], verticalPointsRight[i], weight));
+
+                var temp1 = Vector3.Lerp(verticalPointsLeft[i], verticalPointsRight[i], weight);
+                var temp2 = Vector3.Lerp(verticalPointsLeft[i+1], verticalPointsRight[i+1], weight);
+                verticalTemp.Add(Vector3.Lerp(temp1, temp2, 0.33f));
+
+
+                //verticalTemp.Add(Vector3.Lerp(verticalPointsLeft[i], verticalPointsRight[i], weight));
             }
             
         }
 
         for (int i = 0; i < verticalTemp.Count; i++)
         {
-            spawns.Add(new Vector3(verticalTemp[i].x, verticalTemp[i].y + 1, verticalTemp[i].z - 0.1f));
+            spawns.Add(new Vector3(verticalTemp[i].x, verticalTemp[i].y, verticalTemp[i].z - 0.1f));
             isSpawn.Add(false);
         }
 
@@ -489,9 +499,21 @@ public class BattleField : MonoBehaviour, ITurn
         Vector3 temp;
         int index = 0;
         index = monsters.FindIndex(monster => monster.Pos == pos);
-
+        Debug.Log("get monsterPos : index : " + index);
         temp = battleFieldCamera.WorldToScreenPoint(goMonsters[index].transform.position);
         //Camera.main.WorldToScreenPoint(goMonsters[index].transform.position);
+
+
+        return temp;
+    }
+
+    public GameObject GetGoMonster(int pos)
+    {
+        GameObject temp;
+        int index = 0;
+        index = monsters.FindIndex(monster => monster.Pos == pos);
+
+        temp = goMonsters[index];
 
 
         return temp;

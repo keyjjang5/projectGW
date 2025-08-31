@@ -18,7 +18,7 @@ public class PlayerData : MonoBehaviour
         if (Instance == null)
             Instance = this;
 
-        money = 0;
+        money = 100;
         maxAp = 3;
         characters = new List<PartyMember>();
         items = new List<Item>();
@@ -39,7 +39,7 @@ public class PlayerData : MonoBehaviour
         //AddCharacter(new CharacterIPC_D("리나", 19));
         //AddCharacter(new CharacterIPC_E("엘리시아", 25));
         //AddCharacter(new CharacterIPC_F("셰이드", 21));
-        AddCharacter(new CharacterIPC_G("노아", 22));
+        //AddCharacter(new CharacterIPC_G("노아", 22));
         //AddCharacter(new CharacterIPC_H("소피", 21));
         //AddCharacter(new CharacterIPC_I("캐서린", 22));
         //AddCharacter(new CharacterIPC_J("제니", 20));

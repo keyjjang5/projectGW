@@ -16,7 +16,7 @@ namespace GWCardVer_0_2
             fileName = "MassShield18Card";
             AddEffect(new MassShieldEffect("Mass Shield 18", 18));
             SetImage();
-            Description = "아군 전체에게 보호막 18 부여한다.";
+            Description = "전체에게 보호막 18 부여한다.";
             cost = 3;
         }
     }

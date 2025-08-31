@@ -17,7 +17,7 @@ namespace GWCardVer_0_2
             AddEffect(new PlayerSelfAttackEffect("Self Atk2", 2));
             AddEffect(new RecoveryCostEffect("Regenate Cost 1", 1));
             SetImage();
-            Description = "스스로에게 피해 2, 코스트 1회복";
+            Description = "자신에게 피해 2, 코스트 1 회복";
             cost = 0;
         }
     }

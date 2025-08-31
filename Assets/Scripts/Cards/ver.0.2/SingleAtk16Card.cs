@@ -21,7 +21,7 @@ namespace GWCardVer_0_2
             AddEffect(new IsolationEffect(temp, "Isolation atk 3", 3));
 
             SetImage();
-            Description = "대상에게 16 피해를 입힌다. [고립] : 추가로 3피해를 입힌다.";
+            Description = "16 피해를 입힌다. <color=#F33534>고립</color> : 추가로 3피해를 입힌다.";
             cost = 2;
         }
     }

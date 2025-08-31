@@ -21,7 +21,7 @@ namespace GWCardVer_0_2
             AddEffect(new CooperationEffect(temp, "Cooperation Mass Shield 2", 2));
 
             SetImage();
-            Description = "아군 전체에게 보호막 8 부여한다. [협력] : 추가로 2 부여한다.";
+            Description = "전체에게 보호막 8 부여한다. <color=#36A0FF>협력</color> : 추가로 2 부여한다.";
             cost = 2;
         }
     }

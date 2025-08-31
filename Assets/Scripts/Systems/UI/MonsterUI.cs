@@ -47,7 +47,15 @@ public class MonsterUI : MonoBehaviour
         transform.GetChild(0).GetComponent<MeshRenderer>().material = myMonster.image;
 
         //Debug.Log("get scale : " + myMonster.GetScale());
-        transform.GetChild(0).localScale = myMonster.GetScale();
+        float correction = 1;
+        if (myMonster.Pos / 3 >= 1)
+            correction -= 0.225f;
+        if (myMonster.Pos / 3 >= 2)
+            correction -= 0.175f;
+
+        transform.GetChild(0).localScale = myMonster.GetScale() * correction;
+
+        transform.GetChild(0).Translate(new Vector3(0, transform.GetChild(0).localScale.y / 2, 0));
     }
 
     public void UpdateUI()
@@ -60,6 +68,9 @@ public class MonsterUI : MonoBehaviour
     // 나중에 수정
     public void HpbarMove()
     {
+        height = transform.GetChild(0).localScale.y;
+        //height = myMonster.GetScale().y;
+
         Vector3 hpbarPos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + height, 0));
         transform.GetChild(1).GetChild(0).position = hpbarPos;
     }

@@ -17,7 +17,7 @@ namespace GWCardVer_0_2
             AddEffect(new SingleAttackEffect("Target Atk 8", 8));
             AddEffect(new SingleKnockbackEffect("Target KnockBack", 1));
             SetImage();
-            Description = "대상에게 피해 8를 입히고 뒤로 이동시킨다.";
+            Description = "피해 8를 입히고 뒤로 이동시킨다.";
             cost = 1;
         }
     }

@@ -16,7 +16,7 @@ namespace GWCardVer_0_2
             fileName = "TargetShield6Card";
             AddEffect(new SingleShieldEffect("single Shield 6", 6));
             SetImage();
-            Description = "대상은 보호막 6을 얻는다.";
+            Description = "보호막 6을 얻는다.";
             cost = 1;
         }
     }

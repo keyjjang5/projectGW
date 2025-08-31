@@ -18,7 +18,7 @@ namespace GWCardVer_0_2
             AddEffect(new RecoveryCostEffect("Recover 1", 1));
 
             SetImage();
-            Description = "아군 전체를 5 회복시킨다. 코스트 1을 회복한다.";
+            Description = "전체를 5 회복시킨다. 코스트 1을 회복한다.";
             cost = 1;
         }
     }

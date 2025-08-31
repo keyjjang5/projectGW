@@ -17,7 +17,7 @@ namespace GWCardVer_0_2
             AddEffect(new RowLineAttackEffect("Horizon Atk 7", 7));
 
             SetImage();
-            Description = "가로범위에 7 피해를 입힌다.";
+            Description = "가로 세칸에 7 피해를 입힌다.";
             cost = 1;
         }
     }

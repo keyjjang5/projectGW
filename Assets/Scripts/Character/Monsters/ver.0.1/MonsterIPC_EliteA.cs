@@ -14,7 +14,7 @@ namespace GWMonsterVer_0_1
             id = "M_009";
             name = "Big Mushroom";
 
-            scale = new Vector3(3f, 3f, 3f);
+            scale = new Vector3(3.3f, 3.3f, 3.3f);
         }
 
         public override void SetAttacks()

@@ -17,7 +17,7 @@ namespace GWCardVer_0_2
             AddEffect(new SingleAttackEffect("Atk 5", 5));
             AddEffect(new SingleMoveRightEffect("Move right", 1));
             SetImage();
-            Description = "대상에게 5 피해를 입히고 오른쪽으로 이동시킨다.";
+            Description = "5 피해를 입히고 오른쪽으로 이동시킨다.";
             cost = 0;
         }
     }
