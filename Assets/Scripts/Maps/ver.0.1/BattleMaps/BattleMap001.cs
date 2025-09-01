@@ -20,9 +20,13 @@ namespace GWMapVer_0_1
                     new MonsterIPC_EliteA("MonsterD", 20, 3),
                     new MonsterIPC_EliteA("MonsterD", 20, 6),
 
+                    new MonsterIPC_EliteA("MonsterC", 20, 1),
+                    new MonsterIPC_EliteA("MonsterC", 20, 4),
+                    new MonsterIPC_EliteA("MonsterC", 20, 7),
+
                     new MonsterIPC_EliteA("MonsterC", 20, 2),
                     new MonsterIPC_EliteA("MonsterC", 20, 5),
-                    new MonsterIPC_EliteA("MonsterC", 20, 8),
+                    new MonsterIPC_EliteA("MonsterC", 20, 8)
                 };
         }
 

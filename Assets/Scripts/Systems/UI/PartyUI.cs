@@ -71,10 +71,15 @@ public class PartyUI : MonoBehaviour
 
     public void EndUI()
     {
+        Debug.Log("EndUI");
+        //for (int i = 0; i < partySystem.characters.Count; i++)
+        for (int i = 0; i < characterUIs.Count; i++)
+        {
+            //characterUIs[i].Initialize();
+            characterUIs[i].gameObject.SetActive(false);
+        }
         partySystem.Initialize();
 
-        for (int i = 0; i < partySystem.characters.Count; i++)
-            characterUIs[i].gameObject.SetActive(false);
     }
 
     public void UpdateUI()

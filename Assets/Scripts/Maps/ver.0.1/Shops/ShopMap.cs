@@ -111,7 +111,7 @@ namespace GWMapVer_0_1
             // range의 최대값은 추후 Define과 같은 정수로 정의될 필요가 있음
             // 오류의 여지가 많다
             int ranNum = UnityEngine.Random.Range(0, 2);
-            Debug.Log("ranNum = " + ranNum);
+            //Debug.Log("ranNum = " + ranNum);
             int i = 0;
             foreach(var pair in itemPool)
             {

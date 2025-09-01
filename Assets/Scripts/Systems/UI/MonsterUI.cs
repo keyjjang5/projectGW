@@ -61,6 +61,19 @@ public class MonsterUI : MonoBehaviour
     public void UpdateUI()
     {
         transform.position = BattleField.Instance.GetPos(myMonster.Pos);
+
+        float correction = 1;
+        if (myMonster.Pos / 3 >= 1)
+            correction -= 0.225f;
+        if (myMonster.Pos / 3 >= 2)
+            correction -= 0.175f;
+
+        var prevScale = transform.GetChild(0).localScale;
+        transform.GetChild(0).localScale = myMonster.GetScale() * correction;
+
+        transform.GetChild(0).Translate(new Vector3(0, -prevScale.y / 2, 0));
+        transform.GetChild(0).Translate(new Vector3(0, transform.GetChild(0).localScale.y / 2, 0));
+
         slider.value = myMonster.NowHp / myMonster.MaxHp;
         textUGUI.text = "" + myMonster.NowHp + " / " + myMonster.MaxHp;
     }

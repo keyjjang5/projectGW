@@ -133,6 +133,6 @@ public class PlayerData : MonoBehaviour
     {
         RemoveAllCharacter();
         foreach (var copy in copys)
-            characters.Add(copy.DeepCopy() as PartyMember);
+            AddCharacter(copy.DeepCopy() as PartyMember);
     }
 }

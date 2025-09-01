@@ -62,6 +62,12 @@ public class CharacterUI : MonoBehaviour
         myCharacter.Change.AddListener(UpdateUI);
     }
 
+    public void Initialize()
+    {
+        myCharacter = null;
+        Debug.Log("removeCharacter 실행됨");
+    }
+
     public void UpdateUI()
     {
         // 슬라이더 조정

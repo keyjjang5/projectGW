@@ -499,7 +499,6 @@ public class BattleField : MonoBehaviour, ITurn
         Vector3 temp;
         int index = 0;
         index = monsters.FindIndex(monster => monster.Pos == pos);
-        Debug.Log("get monsterPos : index : " + index);
         temp = battleFieldCamera.WorldToScreenPoint(goMonsters[index].transform.position);
         //Camera.main.WorldToScreenPoint(goMonsters[index].transform.position);
 

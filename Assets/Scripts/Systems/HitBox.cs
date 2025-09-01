@@ -587,16 +587,36 @@ public class HitBox : MonoBehaviour
         else
             pos = additionalEffectStruct.TargetPos;
 
-        if(BattleField.Instance.SearchMonster(pos+3) != null)
+
+        bool upper = false;
+        bool lower = false;
+        bool right = false;
+        bool left = false;
+
+        if (!(pos / 6 >= 1))
+            upper = true;
+        if (!(pos % 3 == 2))
+            right = true;
+        if (!(pos % 3 == 0))
+            left = true;
+        if (!(pos / 3 < 1))
+            lower = true;
+
+        Debug.Log("upper : " + upper);
+        Debug.Log("right : " + right);
+        Debug.Log("left : " + left);
+        Debug.Log("lower : " + lower);
+
+        if ((upper ? BattleField.Instance.SearchMonster(pos + 3) != null : false))
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
 
-        if (BattleField.Instance.SearchMonster(pos + 1) != null)
+        if ((right ? BattleField.Instance.SearchMonster(pos + 1) != null : false))
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
 
-        if (BattleField.Instance.SearchMonster(pos - 1) != null)
+        if ((left ? BattleField.Instance.SearchMonster(pos - 1) != null : false))
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
 
-        if (BattleField.Instance.SearchMonster(pos - 3) != null)
+        if ((lower ? BattleField.Instance.SearchMonster(pos - 3) != null : false))
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
     }
 
@@ -608,11 +628,28 @@ public class HitBox : MonoBehaviour
         else
             pos = additionalEffectStruct.TargetPos;
 
-        if (BattleField.Instance.SearchMonster(pos + 3) == null
-            && BattleField.Instance.SearchMonster(pos + 1) == null
-            && BattleField.Instance.SearchMonster(pos - 1) == null
-            && BattleField.Instance.SearchMonster(pos - 3) == null)
+        bool upper = false;
+        bool lower = false;
+        bool right = false;
+        bool left = false;
+
+        if (!(pos / 6 >= 1))
+            upper = true;
+        if (!(pos % 3 == 2))
+            right = true;
+        if (!(pos % 3 == 0))
+            left = true;
+        if (!(pos / 3 < 1))
+            lower = true;
+
+        if ((upper ? BattleField.Instance.SearchMonster(pos + 3) == null : true)
+            && (right ? BattleField.Instance.SearchMonster(pos + 1) == null : true)
+            && (left ? BattleField.Instance.SearchMonster(pos - 1) == null : true)
+            && (lower ? BattleField.Instance.SearchMonster(pos - 3) == null : true))
+        {
             BattleEffectSystem.Instance.RequestBattleEffect(additionalEffectStruct.effects);
+        }
+            
     }
 
     public void CheckCooperation(AdditionalEffectStruct additionalEffectStruct)

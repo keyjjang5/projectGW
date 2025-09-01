@@ -130,10 +130,13 @@ public class GameLoopSystem : MonoBehaviour
         
         //юс╫ц
         BattleEffectSystem.Instance.ResetPlayer();
-
+        Debug.Log("battleEnd 1");
         PartySystem.Instance.EndBattle();
+        Debug.Log("battleEnd 2");
         PartyUI.EndUI();
+        Debug.Log("battleEnd 3");
         BattleField.EndGame();
+        Debug.Log("battleEnd 4");
 
         RewardUI.SetActive(true);
 

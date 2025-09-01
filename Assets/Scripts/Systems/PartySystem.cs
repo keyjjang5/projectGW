@@ -183,6 +183,7 @@ public class PartySystem : MonoBehaviour, ITurn
 
     public void Initialize()
     {
-        characters.RemoveRange(0, characters.Count);
+        characters.Clear();
+        //characters.RemoveRange(0, characters.Count);
     }
 }
