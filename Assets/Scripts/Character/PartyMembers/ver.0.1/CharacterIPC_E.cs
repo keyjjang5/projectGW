@@ -17,8 +17,8 @@ public class CharacterIPC_E : PartyMember
         ResetCards();
 
         AddCard(new SingleAtk8MoveRightCard(GetCharacter(), "레프트 훅"));
-        AddCard(new SingleAtk6SelfHeal2Card(GetCharacter(), "홀리 어택"));
-        AddCard(new SingleAtk6SelfHeal2Card(GetCharacter(), "홀리 어택"));
+        AddCard(new SingleAtk8MoveLeftCard_Elisia(GetCharacter(), "라이트 훅"));
+        AddCard(new SingleAtk6SelfHeal2Card(GetCharacter(), "홀리 스매쉬"));
         AddCard(new MassShield8Card(GetCharacter(), "신성한 보호"));
     }
 

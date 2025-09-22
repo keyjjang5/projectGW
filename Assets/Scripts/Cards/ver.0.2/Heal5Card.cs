@@ -14,7 +14,7 @@ namespace GWCardVer_0_2
         public Heal5Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "Heal5Card";
-            AddEffect(new SingleHealEffect("target Heal 5", 5));
+            AddEffect(new SingleHealEffect("target Heal 12", 12));
             SetImage();
             Description = "12 회복시킨다.";
             cost = 2;

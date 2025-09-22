@@ -19,8 +19,8 @@ public class CharacterIPC_I : PartyMember
         // 버그발생, 몬스터의 위치값이 바뀌면서 생기는 문제로 보이는데 이유는 잘 모르겠음
         AddCard(new SingleMoveLeftIsolationCard(GetCharacter(), "몰이사냥"));
         AddCard(new SingleMoveRightChainCard(GetCharacter(), "몰이사냥"));
-        AddCard(new TargetShield6Card(GetCharacter(), "부상방지"));
-        AddCard(new Draw1Card(GetCharacter(), "사냥준비"));
+        AddCard(new TargetShield6Card_Catherin(GetCharacter(), "부상방지"));
+        AddCard(new Draw1Card_Catherin(GetCharacter(), "사냥준비"));
     }
 
     public override Character DeepCopy()

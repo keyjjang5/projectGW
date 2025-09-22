@@ -27,7 +27,7 @@ public class AttackUI : MonoBehaviour
 
     public void InitializeUI()
     {
-        scale = new Vector3(1, 1, 1);
+        scale = new Vector3(1.5f, 1.5f, 1.5f);
 
         for (int i = 0; i < BattleField.Instance.divisionNum * BattleField.Instance.divisionNum; i++)
         {
@@ -36,7 +36,7 @@ public class AttackUI : MonoBehaviour
             icon.transform.SetParent(transform);
             Attacks.Add(icon);
 
-            icon.transform.localScale = scale;
+            icon.transform.GetChild(2).localScale = scale;
 
             icon.SetActive(false);
         }
@@ -47,7 +47,7 @@ public class AttackUI : MonoBehaviour
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/Defense"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/health-bar"));
         Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/PlusAttack"));
-        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/AllAttack"));
+        Sprites.Add(Resources.Load<Sprite>("Image/TempIcons/AllAttack_v2"));
     }
 
     public void ShowUI()
@@ -114,33 +114,33 @@ public class AttackUI : MonoBehaviour
         switch (monster.NowAttack.Type)
         {
             case (IconType.Buff):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[0];
                 break;
 
             case (IconType.NormalAttack):
                 Debug.Log("monster.pos : " + Attacks[monster.Pos]);
                 Debug.Log("sprites error? : " + Sprites[1]);
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[1];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[1];
                 break;
 
             case (IconType.PlusAttack):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[4];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[4];
                 break;
 
             case (IconType.MassAttack):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[5];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[5];
                 break;
 
             case (IconType.Shield):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[2];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[2];
                 break;
 
             case (IconType.Recovery):
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[0];
                 break;
 
             default:
-                Attacks[monster.Pos].GetComponent<Image>().sprite = Sprites[0];
+                Attacks[monster.Pos].transform.GetChild(2).GetComponent<Image>().sprite = Sprites[0];
                 break;
         }
         //  nowpower 업데이트
@@ -149,8 +149,8 @@ public class AttackUI : MonoBehaviour
         //  대상을 업데이트 한다.
         //  텍스트 버전용
         //Attacks[monster.Pos].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ">" + (monster.target.Pos + 1);
-        
-        // line용도 34번 줄의 이름과 같이 변경해줘야함
+
+        // line 그리는 용도 34번 줄의 이름과 같이 변경해줘야함
         if (monster.target is PartyMember)
         {
             float correction = 0;
@@ -162,12 +162,15 @@ public class AttackUI : MonoBehaviour
             //var startP = Attacks[monster.Pos].transform.parent.position;
             var endP = PartyUI.Instance.characterUIs[monster.target.Pos].transform.position + new Vector3(-100, -correction + startP.y, 0);
 
-            
-            if(monster.NowAttack.Type == IconType.NormalAttack
+
+            if (monster.NowAttack.Type == IconType.NormalAttack
                 || monster.NowAttack.Type == IconType.UnknownAttack)
                 Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, endP - startP);
         }
         else
+        {
+            Debug.Log("All attack?");
             Attacks[monster.Pos].transform.GetChild(1).GetComponent<AttackLineUI>().SetPoints(Vector3.zero, Vector3.zero);
+        }
     }
 }

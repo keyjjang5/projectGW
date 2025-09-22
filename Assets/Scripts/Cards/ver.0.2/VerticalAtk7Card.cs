@@ -14,11 +14,11 @@ namespace GWCardVer_0_2
         public VerticalAtk7Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "VerticalAtk7Card";
-            AddEffect(new ColLineAttackEffect("Vertical Atk 7", 7));
+            AddEffect(new ColLineAttackEffect("Vertical Atk 12", 12));
 
             SetImage();
-            Description = "세로 세칸에 7 피해를 입힌다.";
-            cost = 1;
+            Description = "세로 세칸에 12 피해를 입힌다.";
+            cost = 2;
         }
     }
 }

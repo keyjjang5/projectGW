@@ -15,11 +15,11 @@ namespace GWCardVer_0_2
         {
             fileName = "SingleMoveLeftIsolationCard";
 
-            AddEffect(new SingleAttackEffect("Atk 5", 5));
+            AddEffect(new SingleAttackEffect("Atk 3", 3));
             AddEffect(new SingleMoveLeftEffect("Move left", 1));            
             
             SetImage();
-            Description = "5피해를 입히고 왼쪽으로 이동시킨다.";
+            Description = "3피해를 입히고 왼쪽으로 이동시킨다.";
             cost = 0;
         }
     }

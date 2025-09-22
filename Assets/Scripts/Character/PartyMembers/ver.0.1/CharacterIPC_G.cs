@@ -18,7 +18,8 @@ public class CharacterIPC_G : PartyMember
 
         AddCard(new ColB2Atk7Card(GetCharacter(), "찌르기"));
         AddCard(new SingleAtk9MoveRightCard(GetCharacter(), "창대 휘두르기"));
-        AddCard(new TargetShield6Card(GetCharacter(), "창대 들어올리기"));
+        AddCard(new SingleAtk9MoveLeftCard(GetCharacter(), "제압 타격"));
+        AddCard(new SingleAtk9MoveForwardCard(GetCharacter(), "창대 걸기"));
     }
 
     public override Character DeepCopy()

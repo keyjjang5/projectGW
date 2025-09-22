@@ -14,10 +14,13 @@ namespace GWCardVer_0_2
         public ColB2Atk7Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "ColB2Atk7Card";
-            AddEffect(new ColB2AttackEffect("Row B2 Atk8", 8));
+            AddEffect(new ColB2AttackEffect("Row B2 Atk11", 11));
+            List<BattleEffect> temp = new List<BattleEffect>();
+            temp.Add(new ColB2AttackEffect("Row B2 Atk3", 3));
+            AddEffect(new CooperationEffect(temp, "Row B2 Atk3", 3));
             SetImage();
-            Description = "세로 두칸 범위에 8 피해를 입힌다.";
-            cost = 1;
+            Description = "세로 두칸 범위에 11 피해를 입힌다. <color=#36A0FF>협력</color> : 대신 14피해를 입힌다.";
+            cost = 2;
         }
     }
 }

@@ -14,10 +14,10 @@ namespace GWCardVer_0_2
         public MassShield18Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "MassShield18Card";
-            AddEffect(new MassShieldEffect("Mass Shield 18", 18));
+            AddEffect(new MassShieldEffect("Mass Shield 18", 14));
             SetImage();
-            Description = "전체에게 보호막 18 부여한다.";
-            cost = 3;
+            Description = "전체에게 보호막 14 부여한다.";
+            cost = 2;
         }
     }
 }

@@ -18,8 +18,8 @@ public class CharacterIPC_C : PartyMember
 
         AddCard(new SingleAtk11Card(GetCharacter(), "È­»ì ½î±â"));
         AddCard(new SingleAtk11Card(GetCharacter(), "È­»ì ½î±â"));
-        AddCard(new Draw1Card(GetCharacter(), "Á¤Âû"));
-        AddCard(new Draw1Card(GetCharacter(), "Á¤Âû"));
+        AddCard(new Draw1Cost1Card(GetCharacter(), "Á¤Âû"));
+        AddCard(new SingleAtk8MoveLeftCard(GetCharacter(), "Ãæ°Ý È­»ì"));
     }
 
     public override Character DeepCopy()

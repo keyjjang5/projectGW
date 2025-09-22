@@ -18,10 +18,11 @@ public class CharacterIPC_J : PartyMember
 
         // 버그발생, 몬스터의 위치값이 바뀌면서 생기는 문제로 보이는데 이유는 잘 모르겠음
 
-        AddCard(new HorizonAtk7Card(GetCharacter(), "횡베기"));
-        AddCard(new HorizonAtk7Card(GetCharacter(), "횡베기"));
-        AddCard(new VerticalAtk7Card(GetCharacter(), "종베기"));
-        AddCard(new VerticalAtk7Card(GetCharacter(), "종베기"));
+        AddCard(new HorizonAtk7Card(GetCharacter(), "강화 횡베기"));
+        AddCard(new VerticalAtk7Card(GetCharacter(), "강화 종베기"));
+        AddCard(new ColB2Atk6Card(GetCharacter(), "종베기"));
+        AddCard(new ColR2Atk6Card(GetCharacter(), "횡베기"));
+
 
     }
 

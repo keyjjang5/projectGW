@@ -14,14 +14,14 @@ namespace GWCardVer_0_2
         public MassAtk19Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "MassAtk19Card";
-            AddEffect(new MassAttackEffect("Mass Atk 19", 19));
+            AddEffect(new MassAttackEffect("Mass Atk 5", 5));
 
             List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new SingleAttackEffect("chain atk 1", 1));
-            AddEffect(new ChainEffect(temp, "chain atk 1", 1));
+            temp.Add(new MassAttackEffect("Mass Atk 5", 5));
+            AddEffect(new ChainEffect(temp, "Mass Atk 5", 5));
 
             SetImage();
-            Description = "전체 범위에 19 피해를 입힌다. <color=#DDC59D>연쇄</color> : 추가로 1 피해를 입힌다.";
+            Description = "전체 범위에 5 피해를 입힌다. <color=#DDC59D>연쇄</color> : 반복한다";
             cost = 3;
         }
     }

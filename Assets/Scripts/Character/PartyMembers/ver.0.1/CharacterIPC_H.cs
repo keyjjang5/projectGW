@@ -16,10 +16,10 @@ public class CharacterIPC_H : PartyMember
         //image = Resources.Load<Sprite>("Image/Characters/Tears/" + id + ".png");
         ResetCards();
 
-        AddCard(new Heal3Card(GetCharacter(), "큐어"));
-        AddCard(new Heal3Card(GetCharacter(), "큐어"));
-        AddCard(new MassHeal2Card(GetCharacter(), "홀리 랜드"));
+        AddCard(new Heal3Card(GetCharacter(), "블래싱"));
+        AddCard(new MassHeal2Card(GetCharacter(), "생추어리"));
         AddCard(new Heal5Card(GetCharacter(), "구원"));
+        AddCard(new DiscardAllDraw5Card(GetCharacter(), "리버스"));
     }
 
     public override Character DeepCopy()

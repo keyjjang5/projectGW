@@ -21,7 +21,7 @@ namespace GWCardVer_0_2
             AddEffect(new CooperationEffect(temp, "Cooperation Draw 1", 1));
 
             SetImage();
-            Description = "대상을 3 회복시킨다. <color=#36A0FF>협력</color> : 1장을 뽑는다.";
+            Description = "3 회복시킨다. <color=#36A0FF>협력</color> : 1장을 뽑는다.";
             cost = 0;
         }
     }

@@ -14,14 +14,14 @@ namespace GWCardVer_0_2
         public SingleAtk11Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "SingleAtk11Card";
-            AddEffect(new SingleAttackEffect("single atk 11", 11));
+            AddEffect(new SingleAttackEffect("single atk 7", 7));
 
             List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new SingleAttackEffect("Isolation atk 2", 2));
-            AddEffect(new IsolationEffect(temp, "Isolation atk 2", 2));
+            temp.Add(new SingleAttackEffect("Isolation atk 5", 5));
+            AddEffect(new IsolationEffect(temp, "Isolation atk 5", 5));
 
             SetImage();
-            Description = "11 피해를 입힌다. <color=#F33534>고립</color> : 추가로 2 피해를 입힌다.";
+            Description = "7 피해를 입힌다. <color=#F33534>고립</color> : 추가로 5 피해를 입힌다.";
             cost = 1;
         }
     }

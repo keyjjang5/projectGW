@@ -14,14 +14,14 @@ namespace GWCardVer_0_2
         public MassShield8Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "MassShield8Card";
-            AddEffect(new MassShieldEffect("Mass Shield 8", 8));
+            AddEffect(new MassShieldEffect("Mass Shield 5", 5));
 
             List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new MassShieldEffect("Cooperation Mass Shield 2", 2));
-            AddEffect(new CooperationEffect(temp, "Cooperation Mass Shield 2", 2));
+            temp.Add(new MassShieldEffect("Cooperation Mass Shield 5", 5));
+            AddEffect(new CooperationEffect(temp, "Cooperation Mass Shield 5", 5));
 
             SetImage();
-            Description = "전체에게 보호막 8 부여한다. <color=#36A0FF>협력</color> : 추가로 2 부여한다.";
+            Description = "전체에게 보호막 5 부여한다. <color=#36A0FF>협력</color> : 대신 10 부여한다.";
             cost = 2;
         }
     }

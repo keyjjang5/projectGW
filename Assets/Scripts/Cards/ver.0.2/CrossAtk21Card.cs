@@ -14,14 +14,10 @@ namespace GWCardVer_0_2
         public CrossAtk21Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "CrossAtk21Card";
-            AddEffect(new CrossAttackEffect("Cross Atk 12", 12));
-
-            List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new SingleAttackEffect("chain atk 1", 1));
-            AddEffect(new ChainEffect(temp, "chain atk 1", 1));
+            AddEffect(new CrossAttackEffect("Cross Atk 11", 11));
 
             SetImage();
-            Description = "십자범위에 12 피해를 입힌다. <color=#DDC59D>연쇄</color> : 추가로 1 피해를 입힌다.";
+            Description = "십자범위에 11 피해를 입힌다.";
             cost = 2;
         }
     }

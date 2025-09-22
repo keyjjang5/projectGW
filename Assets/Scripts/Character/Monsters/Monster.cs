@@ -30,6 +30,8 @@ public class Monster : Character
 
     public Material image;
 
+    protected bool firstSearch;
+
     //public Monster()
     //{
     //    Name = "default";
@@ -71,6 +73,8 @@ public class Monster : Character
 
         id = "M_000";
         //StatusEffects = new List<StatusEffect>();
+
+        firstSearch = false;
 
         SetAttacks();
         SetUser();

@@ -14,17 +14,15 @@ namespace GWCardVer_0_2
         public SingleAtk6SelfHeal2Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "SingleAtk6SelfHeal2Card";
-            AddEffect(new SingleAttackEffect("Single Atk 6", 6));
+            AddEffect(new SingleAttackEffect("Single Atk 14", 14));
 
             List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new SingleAttackEffect("Cooperation atk 2", 2));
-            AddEffect(new CooperationEffect(temp, "Cooperation atk 2", 2));
-
-            AddEffect(new PlayerSelfHealEffect("Self Heal 2", 2));
+            temp.Add(new PlayerSelfMassShieldEffect("Mass Shield 4", 4));
+            AddEffect(new CooperationEffect(temp, "Mass Shield 4", 4));
 
             SetImage();
-            Description = "6 피해를 입히고 체력을 2 회복한다. <color=#36A0FF>협력</color> : 추가로 2 피해를 입힌다.";
-            cost = 1;
+            Description = "14 피해를 입힌다. <color=#36A0FF>협력</color> : 아군 전체에게 보호막 4";
+            cost = 2;
         }
     }
 }

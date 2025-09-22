@@ -14,12 +14,12 @@ namespace GWCardVer_0_2
         public MassHeal2Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "MassHeal2Card";
-            AddEffect(new MassHealEffect("Mass Heal 5", 2));
+            AddEffect(new MassHealEffect("Mass Heal 6", 6));
             AddEffect(new RecoveryCostEffect("Recover 1", 1));
 
             SetImage();
-            Description = "전체를 5 회복시킨다. 코스트 1을 회복한다.";
-            cost = 1;
+            Description = "전체를 6 회복시킨다. <color=#36A0FF>협력</color> : 코스트 1을 회복한다.";
+            cost = 2;
         }
     }
 }

@@ -16,9 +16,10 @@ namespace GWMapVer_0_1
         {
             monsters = new List<Monster>()
                 {
-                    new MonsterIPC_A("MonsterIPC_A", 25, 5),
-                    new MonsterIPC_B("MonsterIPC_B", 21, 1),
-                    new MonsterIPC_B("MonsterIPC_B", 21, 3)
+                    new MonsterIPC_B("Mushroom", 21, 0),
+                    new MonsterIPC_B("Mushroom", 21, 1),
+                    new MonsterIPC_B("Mushroom", 21, 5),
+                    new MonsterIPC_B("Mushroom", 21, 8)
                 };
         }
 

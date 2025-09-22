@@ -18,8 +18,8 @@ public class CharacterIPC_D : PartyMember
 
         AddCard(new MassAtk19Card(GetCharacter(), "아이스 블래스트"));
         AddCard(new Recovery3CostDraw2Card(GetCharacter(), "정신 집중"));
-        AddCard(new VerticalAtk10Card(GetCharacter(), "라이트닝 스피어"));
-        AddCard(new VerticalAtk10Card(GetCharacter(), "라이트닝 스피어"));
+        AddCard(new VerticalAtk10Card(GetCharacter(), "라이트닝 볼트"));
+        AddCard(new AtkCooperationAll5Card(GetCharacter(), "파이어 웨이브"));
     }
 
     public override Character DeepCopy()

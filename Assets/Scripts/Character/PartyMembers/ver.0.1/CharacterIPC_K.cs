@@ -19,9 +19,9 @@ public class CharacterIPC_K : PartyMember
         // 버그발생, 몬스터의 위치값이 바뀌면서 생기는 문제로 보이는데 이유는 잘 모르겠음
 
         AddCard(new SingleShield2Cooperation1Card(GetCharacter(), "방패막기"));
-        AddCard(new SingleShield2Cooperation1Card(GetCharacter(), "방패막기"));
         AddCard(new SingleAtk4MoveBackwardCard(GetCharacter(), "방패밀치기"));
         AddCard(new MassShield18Card(GetCharacter(), "대방패"));
+        AddCard(new AtkRow9Isolation6Card(GetCharacter(), "방패 충격파"));
 
     }
 

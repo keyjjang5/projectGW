@@ -18,8 +18,8 @@ public class CharacterIPC_A : PartyMember
 
         AddCard(new CrossAtk21Card(GetCharacter(), "폭렬 부적"));
         AddCard(new SelfAtk2Cost1Card(GetCharacter(), "영혼 의식"));
-        AddCard(new SelfAtk2Cost1Card(GetCharacter(), "영혼 의식"));
         AddCard(new XAtk14Card(GetCharacter(), "불꽃 만개"));
+        AddCard(new SingleAtk4Chain4Card(GetCharacter(), "배신의 부적"));
     }
 
     public override Character DeepCopy()

@@ -19,14 +19,14 @@ namespace GWMonsterVer_0_1
 
         public override void SetAttacks()
         {
-            Attacks.Add(new Attack(IconType.MassAttack, 10, 0, "A1"));
-            Attacks[Attacks.Count - 1].AddBattleEffect(new MassAttackEffect("A1", 10));
+            Attacks.Add(new Attack(IconType.MassAttack, 7, 0, "A1"));
+            Attacks[Attacks.Count - 1].AddBattleEffect(new MassAttackEffect("A1", 7));
 
-            Attacks.Add(new Attack(IconType.Shield, 10, 0, "A2"));
-            Attacks[Attacks.Count - 1].AddBattleEffect(new SelfShieldEffect("A2", 10));
+            Attacks.Add(new Attack(IconType.Shield, 16, 0, "A2"));
+            Attacks[Attacks.Count - 1].AddBattleEffect(new SelfShieldEffect("A2", 16));
 
-            Attacks.Add(new Attack(IconType.NormalAttack, 14, 0, "A3"));
-            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A3", 14));
+            Attacks.Add(new Attack(IconType.NormalAttack, 16, 0, "A3"));
+            Attacks[Attacks.Count - 1].AddBattleEffect(new SingleAttackEffect("A3", 16));
         }
 
         public override void FindAttack()

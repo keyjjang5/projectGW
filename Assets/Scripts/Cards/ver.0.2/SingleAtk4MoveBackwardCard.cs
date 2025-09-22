@@ -15,9 +15,9 @@ namespace GWCardVer_0_2
         {
             fileName = "SingleAtk4MoveBackwardCard";
             AddEffect(new SingleAttackEffect("Target Atk 4", 4));
-            AddEffect(new SingleKnockbackEffect("Target MoveBackward", 1));
+            AddEffect(new SingleMoveLeftEffect("Target MoveLeft", 1));
             SetImage();
-            Description = "피해 4를 입히고 뒤로 이동시킨다.";
+            Description = "피해 4를 입히고 왼쪽으로 이동시킨다.";
             cost = 1;
         }
     }

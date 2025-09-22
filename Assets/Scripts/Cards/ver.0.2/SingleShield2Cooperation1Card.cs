@@ -14,15 +14,10 @@ namespace GWCardVer_0_2
         public SingleShield2Cooperation1Card(Character parent, string name = "default") : base(parent, name)
         {
             fileName = "SingleShield2Cooperation1Card";
-            AddEffect(new SingleShieldEffect("target shield 2", 2));
-
-            List<BattleEffect> temp = new List<BattleEffect>();
-            temp.Add(new SingleShieldEffect("target shield 1", 1));
-            AddEffect(new CooperationEffect(temp, "coop shield 1", 1));
-
+            AddEffect(new SingleShieldEffect("target shield 8", 8));
             SetImage();
-            Description = "보호막 2를 얻는다. <color=#36A0FF>협력</color> : 추가로 1을 얻는다.";
-            cost = 0;
+            Description = "보호막 8를 얻는다.";
+            cost = 1;
         }
     }
 }
